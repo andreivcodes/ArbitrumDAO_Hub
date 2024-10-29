@@ -2,20 +2,22 @@
 import { paragraphCva, titleCva } from "@/lib/cvas";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { clsx } from "clsx";
 
 interface Props {
   title: string;
   description: string;
   link: string;
+  className?: string;
 }
 
-const { title, description, link } = Astro.props;
+const { title, description, link, className } = Astro.props;
 ---
 
 <section
   class="not-prose flex justify-between gap-4 rounded-2xl bg-zinc-700 p-4 md:p-6 lg:rounded-small"
 >
-  <div class="flex max-w-sm flex-col gap-3 lg:gap-6">
+  <div class={clsx("flex max-w-sm flex-col gap-3 lg:gap-6", className)}>
     <h1
       class={titleCva({
         color: "tertiary",

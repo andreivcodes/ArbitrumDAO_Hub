@@ -161,7 +161,18 @@ export const headerLinks = [
     href: "https://forum.arbitrum.foundation/",
   },
   {
-    name: "GCP",
-    href: "/gcp",
+    name: "Programs",
+    sublinks: [
+      {
+        name: "GCP",
+        description: "Gaming Catalyst Program (GCP)",
+        href: "/programs/gcp",
+      },
+      {
+        name: "ARDC",
+        description: "Arbitrum Research and Development Collective",
+        href: "/programs/ardc",
+      },
+    ],
   },
 ];

@@ -1,0 +1,321 @@
+---
+import Calendar from "@/components/community-hub/calendar.astro";
+import Faq from "@/components/developer-hub/faq";
+import Button from "@/components/ui/button.astro";
+import CardLink from "@/components/ui/links/card-link.astro";
+import Seperator from "@/components/ui/seperator.astro";
+import { deliverables, faqs, heroPoints, members } from "@/data/homepage/ardc";
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import { Image } from "astro:assets";
+import { Check } from "lucide-react";
+
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  smooth
+  title={"Arbitrum Research and Development Collective"}
+  description={"The ARDC plays a crucial role in bolstering the growth and prosperity of the Arbitrum ecosystem by reviewing and enhancing governance proposals, conducting security code reviews, offering quantitative analysis for  economic risk, and fostering engagement among delegates."}
+>
+  <section
+    class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
+  >
+    <div class="flex flex-col gap-4">
+      <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
+        Arbitrum Research and Development Collective
+      </h1>
+      <p
+        class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
+      >
+        The ARDC plays a crucial role in bolstering the growth and prosperity of
+        the Arbitrum ecosystem by reviewing and enhancing governance proposals,
+        conducting security code reviews, offering quantitative analysis for
+        economic risk, and fostering engagement among delegates.
+      </p>
+      <div class="mt-2 flex flex-wrap gap-4">
+        <Button
+          variant="secondary"
+          href="https://forum.arbitrum.foundation/t/arbitrum-research-development-collective-elections-applications/20805"
+          arrow
+          >Arbitrum Forum
+        </Button>
+        <Button
+          href="https://snapshot.org/#/arbitrumfoundation.eth/proposal/0xf49d88ec2f4fa7373efc66a7cf9441d916519f48a2d90e7db3ea688357150a44"
+          arrow
+          variant="secondary"
+          >Snapshot
+        </Button>
+        <Button
+          href="https://www.tally.xyz/gov/arbitrum/proposal/56002054155248055908873103086558103132748843103210580613728556162036150296506?chart=bubble"
+          arrow
+          variant="secondary"
+          >Tally
+        </Button>
+      </div>
+    </div>
+    <Image
+      src="/ardc/hero.svg"
+      alt="Arbitrum Research and Development Collective"
+      width={400}
+      height={400}
+      class="w-[90%] md:w-[30%]"
+    />
+  </section>
+  <section class="grid gap-5 pb-10 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
+    {
+      heroPoints?.map(({ title, descriptoin, icon }, index) => (
+        <div class="flex flex-col gap-3 rounded-lg bg-[#F0F9FF] p-5">
+          {<div set:html={icon} />}
+          <h1
+            class={titleCva({
+              size: "sm",
+            })}
+          >
+            {title}
+          </h1>
+          <p
+            class={paragraphCva({
+              size: "md",
+            })}
+          >
+            {descriptoin}
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  <Seperator />
+  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
+    <div class="flex flex-col gap-6 md:gap-4">
+      <h2
+        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
+      >
+        Phase 2 of ARDC <span
+          class="rounded-full bg-[#E3E0FF] px-3 py-1 text-xs font-medium text-[#5521BC]"
+          >Ongoing</span
+        >
+      </h2>
+      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+        <p
+          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
+        >
+          Building on the success of Phase 1, Phase 2 of the Arbitrum Research
+          and Development Collective (ARDC) continues its mission to strengthen
+          the Arbitrum ecosystem. With an expanded focus on refining governance,
+          advancing security measures, and deepening community engagement, Phase
+          2 aims to ensure the ecosystem remains secure and well-governed
+          through rigorous research, analysis, and collaboration.
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex w-full flex-col-reverse items-center justify-between gap-10 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-10 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
+    >
+      <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
+        <div class="flex flex-col gap-2 lg:gap-4">
+          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
+            <span>Advancing Governance, Security,</span>
+            <br class="md:hidden lg:block" />
+            <span class={"text-primary"}> and Community Engagement</span>
+          </h1>
+
+          <p
+            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
+          >
+            The Phase 2 proposal expands on the foundational work established in
+            Phase 1, introducing new initiatives to further improve governance,
+            security, and community engagement within the Arbitrum ecosystem. It
+            outlines the specific goals and strategies for this phase, setting a
+            clear direction for the collective’s continued efforts.
+          </p>
+        </div>{" "}
+        <div class="flex items-start">
+          <Button
+            href={"https://forum.arbitrum.foundation/t/non-constitutional-arbitrum-research-and-development-collective-term-2/26922"}
+            arrow
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
+        <img
+          src={"/ardc/governance.svg"}
+          alt={""}
+          class="w-[76%] lg:aspect-[16/10]"
+        />
+      </div>
+    </div>
+  </section>
+  <Seperator />
+  <CardLink
+    className="md:max-w-[40%] "
+    title="ARDC V2 Election Announcement: Election Applications Now Open!"
+    description="The ARDC is welcoming new applicants to join the next phase of the Arbitrum Research & Development Collective. Help drive innovation, governance, and community advancement within the ArbitrumDAO. Applications are open from October 30th to November 18th, 2024."
+    link="https://forum.arbitrum.foundation/t/election-application-thread-v2-arbitrum-research-development-collective/27267"
+  />
+  <Seperator />
+  <Calendar />
+  <Seperator />
+  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
+    <div class="flex flex-col gap-6 md:gap-4">
+      <h2
+        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
+      >
+        Phase 1 of ARDC <span
+          class="flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-600"
+          ><Check size={14} /> Completed</span
+        >
+      </h2>
+      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+        <p
+          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
+        >
+          Building on the success of Phase 1, Phase 2 of the Arbitrum Research
+          and Development Collective (ARDC) continues its mission to strengthen
+          the Arbitrum ecosystem. With an expanded focus on refining governance,
+          advancing security measures, and deepening community engagement, Phase
+          2 aims to ensure the ecosystem remains secure and well-governed
+          through rigorous research, analysis, and collaboration.
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex w-full flex-col-reverse items-center justify-between gap-6 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-6 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
+    >
+      <div class="flex flex-col gap-10 lg:w-1/2">
+        <div class="flex flex-col gap-2 pb-10 lg:gap-4 lg:py-28">
+          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
+            <span>Enhancing Governance </span>
+
+            <span class={"text-primary"}>and Security</span>
+          </h1>
+
+          <p
+            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
+          >
+            The Phase 2 proposal expands on the foundational work established in
+            Phase 1, introducing new initiatives to further improve governance,
+            security, and community engagement within the Arbitrum ecosystem. It
+            outlines the specific goals and strategies for this phase, setting a
+            clear direction for the collective’s continued efforts.
+          </p>
+        </div>
+        <div class="flex items-start">
+          <Button
+            href={"https://forum.arbitrum.foundation/t/ardc-final-report/27050"}
+            arrow
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
+        <img
+          src={"/ardc/security.svg"}
+          alt={""}
+          class="w-[76%] lg:aspect-[16/10]"
+        />
+      </div>
+    </div>
+  </section>
+  <Seperator />
+  <section class="flex flex-col gap-4">
+    <h2
+      class={titleCva({
+        size: "md",
+      })}
+    >
+      Team
+    </h2>
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-8 2xl:gap-12">
+      {
+        members?.map((item, index) => (
+          <div class="flex  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 ">
+            <Image
+              src={item.image}
+              class="size-12 rounded-full md:size-16"
+              width={64}
+              height={64}
+              alt={`GameFi ${index + 1}`}
+            />
+            <div class="flex flex-col ">
+              <h4
+                class={titleCva({
+                  size: "sm",
+                })}
+              >
+                {item.name}
+              </h4>
+              <p class={paragraphCva()}>{item.designation}</p>
+
+              <a
+                href={item.x}
+                target="_blank"
+                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white shadow-sm"
+              >
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6009 0.876587H15.0544L9.69434 6.22719L16 13.5082H11.062L7.19492 9.0923L2.77013 13.5082H0.315209L6.0483 7.78509L0 0.876587H5.06188L8.55736 4.91286L12.5995 0.876587H12.6009ZM11.7399 12.2256H13.0993L4.32392 2.09181H2.86506L11.7399 12.2256Z"
+                    fill="#71717A"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <Seperator />
+
+  <section class="flex flex-col gap-4 py-5 md:py-10">
+    <h2
+      class={titleCva({
+        size: "md",
+      })}
+    >
+      Deliverables
+    </h2>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {
+        deliverables?.map((item, index) => (
+          <div class="flex flex-col  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 ">
+            <h3
+              class={titleCva({
+                size: "sm",
+              })}
+            >
+              {item.title}
+            </h3>
+            <p class={paragraphCva()}>
+              {item.description}
+              <br />
+              <span class="mt-2 font-sans font-medium text-gray-500">
+                {item.date}
+              </span>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex items-end justify-end">
+      <a
+        href="https://forum.arbitrum.foundation/t/ardc-final-report/27050"
+        target="_blank"
+        class="text-primary hover:underline"
+      >
+        View More
+      </a>
+    </div>
+  </section>
+  <Seperator />
+  <Faq client:load questions={faqs} />
+</MainLayout>
