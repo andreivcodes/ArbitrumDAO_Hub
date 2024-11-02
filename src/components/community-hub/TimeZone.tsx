@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface TimeZoneCalendarProps {
   calendarId: string;
@@ -27,7 +27,7 @@ const TimeZoneCalendar: React.FC<TimeZoneCalendarProps> = ({
   return (
     <>
       <iframe
-        className="w-full"
+        className="w-full overflow-hidden rounded-small"
         src={src}
         style={{ border: 0 }}
         width="100%"

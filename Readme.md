@@ -2,7 +2,7 @@
 
 ![1beecbc7-1023-45fc-a7fb-be6983747337](https://github.com/HoomanHQ/ArbitrumDAO_Hub/assets/126047668/c6418760-11ed-45de-9582-720e8aad9e7c)
 
-- [Welcome to ArbitrumHub..](#welcome-to-arbitrumhub)
+- [Welcome to ArbitrumHub.](#welcome-to-arbitrumhub)
   - [Welcome to Arbitrum Hub](#welcome-to-arbitrum-hub)
   - [How to run ArbitrumHub locally](#how-to-run-arbitrumhub-locally)
     - [Prerequisites](#prerequisites)

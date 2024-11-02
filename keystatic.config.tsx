@@ -16,8 +16,8 @@ import {
 import { Updates } from "keystatic/GrantHub";
 import { Projects, WorkingGroups } from "keystatic/WorkingGroups";
 
-const REPO_OWNER = "ArbitrumHub";
-const REPO_NAME = "ArbitrumDAO_Hub";
+const REPO_OWNER = "dharamveergit";
+const REPO_NAME = "arbit";
 
 export default config({
   storage:

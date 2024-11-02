@@ -8,8 +8,8 @@ import Seperator from "@/components/ui/seperator.astro";
 import { paragraphCva, titleCva } from "@/lib/cvas";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { GCP_Homepage } from "../data/homepage/gcp";
-import MainLayout from "../layouts/MainLayout.astro";
+import { GCP_Homepage } from "../../data/homepage/gcp";
+import MainLayout from "../../layouts/MainLayout.astro";
 const data = await getCollection("blogs", ({ data }) => {
   return data.tag === "GCP";
 });
