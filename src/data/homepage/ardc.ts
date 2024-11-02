@@ -90,31 +90,31 @@ export const members = [
   {
     name: "krst",
     designation: "Dao Advocate",
-    x: "https://x.com/0xkarel?lang=en",
+    x: "https://t.me/kaereste",
     image: "/ardc/team/image 9.png",
   },
   {
     name: "Blockworks Research",
     designation: "Research Member",
-    x: "https://x.com/marcussegal?lang=en",
+    x: "https://x.com/blockworksres",
     image: "/ardc/team/image 5.png",
   },
   {
     name: "Delphi Digital",
     designation: "Research Member",
-    x: "https://x.com/marcussegal?lang=en",
+    x: "https://x.com/Delphi_Digital",
     image: "/ardc/team/image 6.png",
   },
   {
     name: "Zellic",
     designation: "Risk Member",
-    x: "https://x.com/johansonrick?lang=en",
+    x: "https://x.com/zellic_io",
     image: "/ardc/team/image 7.png",
   },
   {
     name: "OpenZeppelin",
     designation: "Security Member",
-    x: "https://x.com/johansonrick?lang=en",
+    x: "https://x.com/OpenZeppelin",
     image: "/ardc/team/image 8.png",
   },
 ];
