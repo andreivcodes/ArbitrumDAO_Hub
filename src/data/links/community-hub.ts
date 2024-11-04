@@ -173,6 +173,11 @@ export const headerLinks = [
         description: "Arbitrum Research and Development Collective",
         href: "/programs/ardc",
       },
+      {
+        name: "ADPC",
+        description: "Arbitrum DAO Procurement Committee",
+        href: "/programs/adpc",
+      },
     ],
   },
 ];

@@ -32,6 +32,7 @@ const { title, description, link, className } = Astro.props;
     >
       {description}
     </p>
+    <slot name="button" />
   </div>
   <a href={link} target={link.startsWith("http") ? "_blank" : "_self"}>
     <div class="group flex h-full max-w-sm overflow-hidden rounded-md">
