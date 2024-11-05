@@ -1,5 +1,6 @@
 ---
 import Faq from "@/components/developer-hub/faq";
+import AimCarousal from "@/components/gcp/AimCarousal";
 import GamesCarousal from "@/components/gcp/GamesCarousal";
 import Subscribe from "@/components/gcp/Subscribe";
 import Button from "@/components/ui/button.astro";
@@ -117,45 +118,7 @@ const data = await getCollection("blogs", ({ data }) => {
         </p>
       </div>
     </div>
-    <div
-      class="flex flex-col-reverse items-center justify-between gap-6 rounded-small bg-blue-light p-8 md:flex-row md:rounded-3xl lg:gap-28 lg:rounded-large lg:p-14"
-    >
-      <div class="flex flex-col gap-2 md:w-[40%] lg:gap-4">
-        <p
-          class="text-xs font-normal uppercase tracking-widest text-gray-500 lg:text-sm"
-        >
-          This Program Aims to
-        </p>
-
-        <h2
-          class="max-w-[27rem] text-lg font-medium text-[#153055] md:text-2xl lg:text-3xl"
-        >
-          Rapidly Increase the Number of Game Developers Using
-          Arbitrum/Orbit/Stylus
-        </h2>
-        <p class="font-semibold text-gray-500">
-          GCP is committed to attracting developers with:
-        </p>
-        <ul
-          class={"pt-3 marker:text-gray-400 font-os list-disc text-xs list-outside flex flex-col gap-1 font-light text-gray-600 md:text-base lg:pt-0 lg:text-base"}
-        >
-          <li>Funding to kickstart their projects</li>
-          <li>Mentorship from industry experts</li>
-          <li>
-            Tools like Orbit and Stylus to simplify development <br />This
-            holistic approach ensures more developers join Arbitrum’s thriving
-            ecosystem.
-          </li>
-        </ul>
-      </div>
-      <div class="md:w-[45%]">
-        <img
-          src={"/gcp/learning.svg"}
-          alt={""}
-          class="aspect-[3/2] w-full md:aspect-auto lg:aspect-[16/12]"
-        />
-      </div>
-    </div>
+    <AimCarousal client:load />
   </section>
   <Seperator />
   <!-- second section -->

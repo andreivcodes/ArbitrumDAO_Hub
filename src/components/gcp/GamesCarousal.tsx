@@ -119,6 +119,15 @@ const GamesCarousal = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="flex items-end justify-end">
+        <a
+          href="https://portal.arbitrum.io/projects/gaming"
+          target="_blank"
+          className="text-primary hover:underline"
+        >
+          View All
+        </a>
+      </div>
     </section>
   );
 };
