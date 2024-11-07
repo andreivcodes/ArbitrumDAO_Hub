@@ -99,42 +99,28 @@ export const members = [
 
 export const faqs = [
   {
-    question: "How did the ARDC communicate with the Arbitrum community?",
+    question: "What is the Arbitrum Ventures Initiative (AVI)?",
     answer: `
-      <div class="flex flex-col gap-2">
-      <p>The ARDC prioritized open communication through:</p>
-      <ul class="flex flex-col gap-1 font-os  list-disc pl-5">
-            <li >Public meeting minutes for all ARDC meetings.</li>
-            <li >Monthly reports summarizing deliverables and active workstreams.</li>
-            <li >Bi-weekly community calls for real-time updates.</li>
-            <li >A Notion dashboard tracking ongoing tasks and requests.</li>
-            <li >Telegram availability for instant communication with the DAO Advocate</li>
-          </ul></div>`,
+    AVI is a program launched by the Arbitrum DAO aimed at supporting and fostering the growth of innovative projects within the Arbitrum ecosystem. Through strategic investments and partnerships, AVI seeks to empower developers and entrepreneurs who are building decentralized solutions.`,
   },
   {
-    question:
-      "Where can I find the list of deliverables published by the ARDC?",
+    question: "What are the main goals of the AVI Pilot Phase?",
     answer: `
-      The complete list of ARDC deliverables is available on the ArbitrumDAO forum, where the committee’s published reports and analysis are accessible to all DAO members.`,
+      The pilot phase aims to test the structure and effectiveness of AVI by evaluating potential investment strategies, forming strategic partnerships, and assessing project impacts. This phase will help refine the initiative before broader implementation.`,
   },
   {
-    question: "What types of requests does the ARDC handle?",
+    question: "Who can apply for support or funding through AVI?",
     answer:
-      "The ARDC addresses a variety of requests related to governance, security, risk assessment, and research. Common requests include evaluating new proposals, conducting retroactive analysis of incentive programs, and performing security reviews on executable proposals.",
+      "Developers, teams, and projects focused on building scalable and impactful decentralized applications within the Arbitrum ecosystem are encouraged to apply for support during the pilot phase of AVI.",
   },
   {
-    question: "How does the ARDC ensure transparency in its operations?",
+    question: "How is AVI governed within the Arbitrum DAO?",
     answer:
-      "Transparency is maintained through multiple channels, including public meeting minutes, monthly performance reports, and bi-weekly community calls. Additionally, the ARDC’s tasks and progress are logged in a public Notion dashboard, allowing the DAO community to stay up-to-date on its activities.",
+      "AVI operates as a non-constitutional initiative, meaning it functions independently from the formal governance structure but under oversight from the Arbitrum DAO. This structure allows AVI to remain flexible and adaptive during its pilot phase.",
   },
   {
-    question: "Who can participate in ARDC calls or discussions?",
+    question: "What types of projects are prioritized for investment by AVI?",
     answer:
-      "ARDC bi-weekly calls and monthly open governance calls are accessible to the entire ArbitrumDAO community. These calls provide updates, answer questions, and serve as an open platform for engagement, encouraging any interested party to join and contribute.",
-  },
-  {
-    question: "How does the ARDC align with Arbitrum’s long-term goals?",
-    answer:
-      "The ARDC is aligned with Arbitrum’s mission of decentralization, innovation, and community-driven governance. By providing well-researched assessments and transparent communication, the ARDC empowers the DAO to make data-driven decisions that further the ecosystem’s long-term growth and stability.",
+      "AVI looks for projects that demonstrate strong potential for innovation, adoption, and alignment with the broader goals of the Arbitrum ecosystem, including infrastructure development, tools for developers, and projects that contribute to community growth and user engagement.",
   },
 ];

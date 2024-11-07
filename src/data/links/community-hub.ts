@@ -183,6 +183,12 @@ export const headerLinks = [
         description: "Arbitrum Ventures Initiatives",
         href: "/programs/avi",
       },
+      {
+        name: "Entropy Advisors",
+        description:
+          "Entropy Advisors is a specialized strategic consulting firm.",
+        href: "/programs/entropy-advisors",
+      },
     ],
   },
 ];
