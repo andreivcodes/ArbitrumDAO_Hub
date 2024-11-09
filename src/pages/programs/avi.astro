@@ -1,0 +1,256 @@
+---
+import Faq from "@/components/developer-hub/faq";
+import Button from "@/components/ui/button.astro";
+import CardLink from "@/components/ui/links/card-link.astro";
+import Seperator from "@/components/ui/seperator.astro";
+import { faqs, heroPoints, members } from "@/data/homepage/avi";
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import { Image } from "astro:assets";
+
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  smooth
+  title={"Arbitrum Ventures Initiatives"}
+  description={"AVI is Arbitrum’s dedicated venture program, designed to foster growth and innovation across the Arbitrum ecosystem. It strategically invests in projects that support decentralized finance (DeFi), blockchain infrastructure, gaming, and Web3 applications. By empowering transformative ideas, AVI aims to create new opportunities and partnerships that enrich the Arbitrum network and advance the future of decentralized technology."}
+>
+  <section
+    class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
+  >
+    <div class="flex flex-col gap-4">
+      <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
+        Arbitrum Ventures Initiatives
+      </h1>
+      <p
+        class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
+      >
+        AVI is Arbitrum’s dedicated venture program, designed to foster growth
+        and innovation across the Arbitrum ecosystem. It strategically invests
+        in projects that support decentralized finance (DeFi), blockchain
+        infrastructure, gaming, and Web3 applications. By empowering
+        transformative ideas, AVI aims to create new opportunities and
+        partnerships that enrich the Arbitrum network and advance the future of
+        decentralized technology.
+      </p>
+      <div class="mt-2 flex flex-wrap gap-4">
+        <Button
+          variant="secondary"
+          href="https://forum.arbitrum.foundation/t/rfc-proposal-non-constitutional-establishment-of-arbitrum-ventures-initiative-avi/23222"
+          arrow
+          >Arbitrum Forum
+        </Button>
+        <Button
+          href="https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x09d16f8726f1f9a85bd6975587947a2cd7ce6bd438750d52866ae36207ac7ded"
+          arrow
+          variant="secondary"
+          >Snapshot
+        </Button>
+        <Button
+          href="https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758"
+          arrow
+          variant="secondary"
+          >Tally
+        </Button>
+      </div>
+    </div>
+    <Image
+      src="/avi/hero.svg"
+      alt="Arbitrum Research and Development Collective"
+      width={400}
+      height={400}
+      class="w-[100%] md:w-[40%]"
+    />
+  </section>
+  <section class="grid gap-5 pb-10 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
+    {
+      heroPoints?.map(({ title, descriptoin, icon }, index) => (
+        <div class="flex flex-col gap-3 rounded-lg bg-[#F0F9FF] p-5">
+          {<div set:html={icon} />}
+          <h1
+            class={titleCva({
+              size: "sm",
+            })}
+          >
+            {title}
+          </h1>
+          <p
+            class={paragraphCva({
+              size: "md",
+            })}
+          >
+            {descriptoin}
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  <Seperator />
+  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
+    <div class="flex flex-col gap-6 md:gap-4">
+      <div class="flex flex-col lg:w-[35%] xl:w-[30%]">
+        <h2
+          class="flex items-center gap-3 text-lg font-medium md:text-xl lg:text-2xl"
+        >
+          Pilot Phase <span
+            class="rounded-full bg-red-50 px-3 py-1 text-xs font-medium text-red-500"
+            >Active</span
+          >
+        </h2>
+        <p
+          class={paragraphCva({
+            size: "sm",
+          })}
+        >
+          May 21 2024- Jul 27 2024
+        </p>
+      </div>
+      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+        <p
+          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
+        >
+          The pilot phase of the Arbitrum Ventures Initiative (AVI) is a
+          preliminary testing period aimed at exploring and refining its
+          investment strategy. This phase focuses on assessing the effectiveness
+          of AVI’s approach to supporting innovative projects that drive growth
+          within the Arbitrum ecosystem.
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex w-full flex-col-reverse items-center justify-between gap-10 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-10 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
+    >
+      <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
+        <div class="flex flex-col gap-2 lg:gap-4">
+          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
+            <span>Community Approval to </span>
+            <br class="md:hidden lg:block" />
+            <span class={"text-primary"}>Allocate Funds</span>
+          </h1>
+
+          <p
+            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
+          >
+            AVI seeks community approval to allocate funds to support ecosystem
+            growth through the Arbitrum Ventures Initiative (AVI). AVI aims to
+            invest in projects that enhance the Arbitrum ecosystem, strengthen
+            partnerships, and drive long-term success for the platform. Voting
+            is open for community members to have their say on this strategic
+            investment.
+          </p>
+        </div>{" "}
+        <div class="flex items-start">
+          <Button
+            href={"https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758"}
+            arrow
+          >
+            Learn More
+          </Button>
+          <Button
+            href={"https://docsend.com/view/24x56jquhcswqd5g"}
+            arrow
+            variant={"secondary"}
+          >
+            AVI Deck
+          </Button>
+        </div>
+      </div>
+      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
+        <img
+          src={"/avi/funds.svg"}
+          alt={""}
+          class="w-[76%] lg:aspect-[16/13]"
+        />
+      </div>
+    </div>
+  </section>
+  <Seperator />
+  <section
+    class="flex flex-col gap-6 rounded-small bg-primary-light px-5 py-8 md:px-14 md:py-10"
+  >
+    <h2
+      class={titleCva({
+        size: "xl",
+      })}
+    >
+      Upcoming Key Deliverables for AVI Pilot Phase
+    </h2>
+    <div class="flex flex-col gap-4">
+      <p class={paragraphCva()}>
+        AVI Pilot Phase Deliverables are in progress.
+      </p>
+      <p class={paragraphCva()}>View the Upcoming Key Deliverables.</p>
+      <Button
+        href="https://forum.arbitrum.foundation/t/non-constitutional-pilot-phase-arbitrum-venture-initiative/24247"
+        variant="secondary"
+        arrow>View Deliverables</Button
+      >
+    </div>
+  </section>
+
+  <Seperator />
+  <CardLink
+    className="md:max-w-[40%] "
+    title="Bi-Weekly Updates"
+    description="Stay tuned for the latest on AVI’s progress and developments! Our bi-weekly updates cover key insights, partnership highlights, and the latest projects contributing to the Arbitrum ecosystem's growth."
+    link="https://forum.arbitrum.foundation/t/arbitrum-ventures-initiative-hub/26008"
+  />
+  <Seperator />
+  <section class="flex flex-col gap-4">
+    <h2
+      class={titleCva({
+        size: "md",
+      })}
+    >
+      Team
+    </h2>
+    <div class="grid gap-3 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+      {
+        members?.map((item, index) => (
+          <div class="flex  items-center gap-3 rounded-xl border bg-[#F7F6FA]  p-5 md:gap-4 ">
+            <Image
+              src={item.image}
+              class="size-16 rounded-full md:size-20"
+              width={88}
+              height={88}
+              alt={`GameFi ${index + 1}`}
+            />
+            <div class="flex flex-col ">
+              <h4
+                class={titleCva({
+                  size: "sm",
+                })}
+              >
+                {item.name}
+              </h4>
+              <p class={paragraphCva()}>{item.designation}</p>
+
+              <a
+                href={item.link}
+                target="_blank"
+                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white text-gray-500 shadow-sm"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M-0.0776367 1.89435C-0.0776367 1.37718 0.103373 0.950511 0.465394 0.61435C0.827414 0.278188 1.29804 0.110107 1.87727 0.110107C2.44616 0.110107 2.90644 0.275602 3.25812 0.606592C3.62014 0.947926 3.80115 1.39269 3.80115 1.9409C3.80115 2.43738 3.62531 2.85112 3.27364 3.18211C2.91162 3.52344 2.43582 3.69411 1.84624 3.69411H1.83073C1.26184 3.69411 0.801555 3.52344 0.449878 3.18211C0.0982016 2.84077 -0.0776367 2.41152 -0.0776367 1.89435ZM0.12406 15.4701V5.10599H3.56842V15.4701H0.12406ZM5.47679 15.4701H8.92115V9.68296C8.92115 9.32094 8.96253 9.04166 9.04527 8.84514C9.19008 8.49346 9.40988 8.19609 9.70467 7.95302C9.99945 7.70995 10.3692 7.58841 10.814 7.58841C11.9725 7.58841 12.5517 8.36934 12.5517 9.9312V15.4701H15.9961V9.5278C15.9961 7.99698 15.634 6.83593 14.91 6.04465C14.186 5.25338 13.2292 4.85774 12.0397 4.85774C10.7054 4.85774 9.66588 5.4318 8.92115 6.57993V6.61096H8.90564L8.92115 6.57993V5.10599H5.47679C5.49747 5.43698 5.50782 6.46615 5.50782 8.1935C5.50782 9.92086 5.49747 12.3464 5.47679 15.4701Z"
+                    fill="#ACACAC"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <Seperator />
+  <Faq client:load questions={faqs} />
+</MainLayout>

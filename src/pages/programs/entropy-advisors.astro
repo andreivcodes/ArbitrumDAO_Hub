@@ -1,0 +1,272 @@
+---
+import Faq from "@/components/developer-hub/faq";
+import Button from "@/components/ui/button.astro";
+import Seperator from "@/components/ui/seperator.astro";
+import { faqs, heroPoints, members } from "@/data/homepage/entropy";
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import { Image } from "astro:assets";
+
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  smooth
+  title={"Arbitrum Ventures Initiatives"}
+  description={"AVI is Arbitrum’s dedicated venture program, designed to foster growth and innovation across the Arbitrum ecosystem. It strategically invests in projects that support decentralized finance (DeFi), blockchain infrastructure, gaming, and Web3 applications. By empowering transformative ideas, AVI aims to create new opportunities and partnerships that enrich the Arbitrum network and advance the future of decentralized technology."}
+>
+  <section
+    class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
+  >
+    <div class="flex flex-col gap-4">
+      <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
+        Entropy Advisors
+      </h1>
+      <p
+        class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
+      >
+        Entropy Advisors is a specialized strategic consulting firm that
+        exclusively partners with the Arbitrum DAO. With extensive experience in
+        blockchain governance and growth strategy, they provide critical
+        insights and guidance, helping Arbitrum align its community, mission,
+        and strategic vision. Entropy Advisors has become an invaluable partner
+        in driving sustainable growth and enhancing decision-making processes
+        within the DAO.
+      </p>
+      <div class="mt-2 flex flex-wrap gap-4">
+        <Button
+          variant="secondary"
+          href="https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246"
+          arrow
+          >Arbitrum Forum
+        </Button>
+        <Button
+          href="https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x3161a3d9486ab7b6099be9fda16d6498f329249c0ad33b0f75090f2ceb557789"
+          arrow
+          variant="secondary"
+          >Snapshot
+        </Button>
+        <Button
+          href="https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758"
+          arrow
+          variant="secondary"
+          >Tally
+        </Button>
+      </div>
+    </div>
+    <Image
+      src="/entropy/hero.svg"
+      alt="Arbitrum Research and Development Collective"
+      width={400}
+      height={400}
+      class="aspect-[16/7] w-[100%] object-cover object-center md:w-[40%]"
+    />
+  </section>
+  <section class="grid gap-5 pb-10 md:grid-cols-2 xl:grid-cols-4 2xl:gap-10">
+    {
+      heroPoints?.map(({ title, descriptoin, icon }, index) => (
+        <div class="flex flex-col gap-3 rounded-lg bg-[#F0F9FF] p-5">
+          {<div set:html={icon} />}
+          <h1
+            class={titleCva({
+              size: "sm",
+            })}
+          >
+            {title}
+          </h1>
+          <p
+            class={paragraphCva({
+              size: "md",
+            })}
+          >
+            {descriptoin}
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  <Seperator />
+  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
+    <div class="flex flex-col gap-6 md:gap-4">
+      <h2
+        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:text-2xl"
+      >
+        Vision of Entropy Advisors
+      </h2>
+
+      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+        <p
+          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
+        >
+          Entropy Advisors envisions supporting Arbitrum DAO by enhancing its
+          governance and community engagement across multiple phases. Their goal
+          is to build a resilient, decentralized protocol, fostering better
+          decision-making structures and processes to accommodate future growth.
+          Through collaboration, they aim to ensure Arbitrum's long-term
+          scalability and adaptability within the blockchain ecosystem.
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex w-full flex-col-reverse items-center justify-between gap-10 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-10 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
+    >
+      <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
+        <div class="flex flex-col gap-2 lg:gap-4">
+          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
+            <span>Long-Term Ecosystem </span>
+
+            <span class={"text-primary"}>Development</span>
+          </h1>
+
+          <p
+            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
+          >
+            Their vision also includes working closely with the DAO to improve
+            operational efficiency and contribute to strategic growth. This
+            involves tackling challenges such as transparency, governance
+            flexibility, and ecosystem development to strengthen Arbitrum’s
+            position as a leader in the decentralized space.
+          </p>
+        </div>
+        <div class="flex items-start">
+          <Button
+            href={"https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246#p-53488-vision-9"}
+            arrow
+          >
+            Learn More
+          </Button>
+        </div>
+      </div>
+      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
+        <img
+          src={"/entropy/development.svg"}
+          alt={""}
+          class="w-[76%] lg:aspect-[16/11]"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Seperator />
+  <section class="flex flex-col gap-6 md:gap-4">
+    <h2
+      class="text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
+    >
+      Entropy’s Portfolio
+    </h2>
+    <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+      <p
+        class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
+      >
+        Entropy Advisors introduced itself to the Arbitrum DAO in May and has
+        since led initiatives to improve governance and operational efficiency.
+        They launched the Multisig Support Service to cut expenses, researched
+        sequencer fees to propose a revenue-boosting fee increase, and
+        facilitated funding for Arbitrum’s presence at the GovHack event.
+        Additionally, They established a structured governance calendar for
+        smoother proposal processes.
+      </p>
+      <Button
+        href={"https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246"}
+        arrow
+      >
+        Learn More
+      </Button>
+    </div>
+  </section>
+  <Seperator />
+  <section
+    class="flex flex-col items-center justify-between gap-6 md:flex-row lg:gap-10 lg:p-5"
+  >
+    <div class="flex flex-col gap-8 md:w-[50%]">
+      <div class="flex flex-col gap-2 lg:gap-4">
+        <h2 class="text-lg font-medium md:text-2xl lg:text-3xl">
+          Cost & Budget Breakdown
+        </h2>
+
+        <p
+          class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
+        >
+          The Cost & Budget Breakdown for Entropy Advisors ensures competitive
+          compensation, operational support, and flexibility to engage top
+          talent. It includes allocations for legal, insurance, and accounting
+          services, industry event participation, essential software, and office
+          resources. A contingency margin covers unforeseen expenses, and a
+          performance-based bonus aligns Entropy’s goals with the DAO’s
+          interests, promoting accountability and transparency.
+        </p>
+      </div>
+
+      <Button
+        arrow
+        variant="default"
+        href="https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246#p-53488-cost-budget-breakdown-14"
+        >Learn More</Button
+      >
+    </div>
+    <div class="md:w-[50%]">
+      <img
+        src={"/entropy/budget.png"}
+        alt={"wheel"}
+        class="aspect-[16/9] w-full object-contain"
+      />
+    </div>
+  </section>
+  <Seperator />
+  <section class="flex flex-col gap-4">
+    <h2
+      class={titleCva({
+        size: "md",
+      })}
+    >
+      Team
+    </h2>
+    <div class="grid grid-cols-2 gap-3 md:gap-8 lg:grid-cols-3">
+      {
+        members?.map((item, index) => (
+          <div class="flex  items-center gap-3 rounded-xl border bg-[#F7F6FA]  p-2 md:gap-4 md:p-5 ">
+            <Image
+              src={item.image}
+              class="size-10 rounded-full md:size-20"
+              width={88}
+              height={88}
+              alt={` ${index + 1}`}
+            />
+            <div class="flex flex-col ">
+              <h4
+                class={titleCva({
+                  size: "sm",
+                })}
+              >
+                {item.name}
+              </h4>
+              <p class={paragraphCva()}>{item.designation}</p>
+
+              <a
+                href={item.link}
+                target="_blank"
+                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white text-gray-500 shadow-sm"
+              >
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.6009 0.896729H15.0544L9.69434 6.24734L16 13.5283H11.062L7.19492 9.11244L2.77013 13.5283H0.315209L6.0483 7.80523L0 0.896729H5.06188L8.55736 4.933L12.5995 0.896729H12.6009ZM11.7399 12.2457H13.0993L4.32392 2.11195H2.86506L11.7399 12.2457Z"
+                    fill="#71717A"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <Seperator />
+  <Faq client:load questions={faqs} />
+</MainLayout>
