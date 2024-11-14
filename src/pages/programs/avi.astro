@@ -94,8 +94,10 @@ import MainLayout from "../../layouts/MainLayout.astro";
           class="flex items-center gap-3 text-lg font-medium md:text-xl lg:text-2xl"
         >
           Pilot Phase <span
-            class="rounded-full bg-red-50 px-3 py-1 text-xs font-medium text-red-500"
-            >Active</span
+            class="flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-500"
+          >
+            <div class="size-1.5 rounded-full bg-green-500"></div>
+            Active</span
           >
         </h2>
         <p
@@ -132,27 +134,19 @@ import MainLayout from "../../layouts/MainLayout.astro";
           <p
             class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
           >
-            AVI seeks community approval to allocate funds to support ecosystem
-            growth through the Arbitrum Ventures Initiative (AVI). AVI aims to
-            invest in projects that enhance the Arbitrum ecosystem, strengthen
-            partnerships, and drive long-term success for the platform. Voting
-            is open for community members to have their say on this strategic
-            investment.
+            The Arbitrum Ventures Initiative (AVI) is dedicated to supporting
+            ecosystem growth by investing in projects that enhance the Arbitrum
+            platform, foster partnerships, and drive long-term success.
+            Following the approval of AVI’s pilot phase, community members can
+            contribute to this program by staying informed and engaged.
           </p>
         </div>{" "}
         <div class="flex items-start">
           <Button
-            href={"https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758"}
+            href={"https://forum.arbitrum.foundation/t/arbitrum-ventures-initiative-hub/26008"}
             arrow
           >
             Learn More
-          </Button>
-          <Button
-            href={"https://docsend.com/view/24x56jquhcswqd5g"}
-            arrow
-            variant={"secondary"}
-          >
-            AVI Deck
           </Button>
         </div>
       </div>
@@ -192,7 +186,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
   <Seperator />
   <CardLink
     className="md:max-w-[40%] "
-    title="Bi-Weekly Updates"
+    title="Monthly Updates"
     description="Stay tuned for the latest on AVI’s progress and developments! Our bi-weekly updates cover key insights, partnership highlights, and the latest projects contributing to the Arbitrum ecosystem's growth."
     link="https://forum.arbitrum.foundation/t/arbitrum-ventures-initiative-hub/26008"
   />
