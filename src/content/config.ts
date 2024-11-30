@@ -1,4 +1,3 @@
-import { cardSchema } from "@/data/schema/cards";
 import { ambassadors, contributions, events } from "@/data/schema/community";
 import { Grants } from "@/data/schema/grant-hub";
 import { homepage } from "@/data/schema/homepage";

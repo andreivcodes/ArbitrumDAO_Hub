@@ -14,14 +14,22 @@ interface Props {
     text: string;
     link: string;
   }[];
+  programStatus?: "Active" | "Completed" | "Coming Soon";
 }
 import classNames from "classnames";
-const { title, description, buttons, className, subTitle, breadcrumbs } =
-  Astro.props;
+const {
+  title,
+  description,
+  buttons,
+  className,
+  subTitle,
+  breadcrumbs,
+  programStatus,
+} = Astro.props;
 
-import Button from "./button.astro";
-import { Icon } from "astro-icon/components";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Status from "../status.astro";
+import Button from "./button.astro";
 ---
 
 <div
@@ -67,7 +75,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
   }
 
   <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
-    {title}
+    <span class="flex items-center gap-2">
+      {title}
+      <Status type={programStatus} />
+    </span>
     {
       subTitle && (
         <span>

@@ -1,14 +1,14 @@
 ---
 import Faq from "@/components/developer-hub/faq";
 import Features from "@/components/grant-hub/features.astro";
+import Status from "@/components/status.astro";
 import Button from "@/components/ui/button.astro";
-import BlogCard from "@/components/ui/cards/blog-card.astro";
 import GradientHead from "@/components/ui/gradient-head.astro";
 import MultiCardLink from "@/components/ui/links/multi-card-link.astro";
 import Seperator from "@/components/ui/seperator.astro";
 import { GrantHub_Homepage } from "@/consts";
 import MainLayout from "@/layouts/MainLayout.astro";
-import { paragraphCva, smallCva, titleCva } from "@/lib/cvas";
+import { paragraphCva, titleCva } from "@/lib/cvas";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
@@ -174,17 +174,15 @@ const grants = grantCollection.filter((grant) => grant.data.type === "Home");
                   </small>
                   <div class="flex items-start gap-4">
                     <h1 class={titleCva({ size: "sm" })}>{data?.title}</h1>
-                    <div class="hidden rounded-full bg-[#E1EFFE] px-3 py-1.5 font-os text-sm text-[#30429F] lg:block">
-                      Active
+                    <div class="hidden md:block">
+                      <Status type={data?.programStatus} />
                     </div>
                   </div>
                   <p class={paragraphCva()}>{data?.overview}</p>
                 </div>
               </div>
               <div class="mt-6 flex items-center justify-between md:hidden">
-                <div class=" rounded-full bg-[#E1EFFE] px-3 py-1.5 font-os text-sm text-[#30429F] ">
-                  Active
-                </div>
+                <Status type={data?.programStatus} />
                 <Icon
                   name="arrow-circle"
                   class="  size-10 -rotate-45 stroke-[0.6]  text-zinc-500 transition-all  duration-300 group-hover:rotate-0 md:size-14 "

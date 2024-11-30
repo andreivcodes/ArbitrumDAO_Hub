@@ -1,0 +1,76 @@
+---
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import Button from "../ui/button.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  updates?: {
+    title: string;
+    date?: string;
+    link: string;
+  }[];
+  button?: {
+    text: string;
+    href: string;
+  };
+}
+
+const { title, description, updates, button } = Astro.props;
+---
+
+<section class="flex flex-col gap-10 py-10 md:flex-row lg:gap-20">
+  <div class="flex w-full flex-col gap-2 md:max-w-[40%]">
+    <h2 class={titleCva()}>{title}</h2>
+    <p class={paragraphCva()}>{description}</p>
+    {
+      button && (
+        <Button href={button.href} variant="default" arrow className="mt-4">
+          {button.text}
+        </Button>
+      )
+    }
+  </div>
+
+  <div class="flex w-full flex-1 flex-col gap-4">
+    {
+      updates?.map((update) => (
+        <a
+          target="_blank"
+          href={update.link}
+          class="group flex items-center justify-between   bg-zinc-100 p-4 shadow-sm transition-all hover:shadow-md"
+        >
+          <div class="flex flex-col gap-1 border-l-4 border-primary pl-4">
+            {update.date && <p class="text-sm text-primary">{update.date}</p>}
+            <h3 class="text-base font-medium text-gray-900">{update.title}</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              width="35"
+              height="34"
+              viewBox="0 0 35 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="transition-transform group-hover:translate-x-1"
+            >
+              <path
+                d="M13.5781 20.5566L21.42 12.7146M21.42 12.7146H14.5584M21.42 12.7146V19.5763"
+                stroke="currentColor"
+                stroke-width="0.72327"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M17.4999 30.4978C25.156 30.4978 31.3626 24.2912 31.3626 16.6351C31.3626 8.97899 25.156 2.77246 17.4999 2.77246C9.84374 2.77246 3.63721 8.97899 3.63721 16.6351C3.63721 24.2912 9.84374 30.4978 17.4999 30.4978Z"
+                stroke="currentColor"
+                stroke-width="0.72327"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

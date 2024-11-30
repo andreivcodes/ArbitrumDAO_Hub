@@ -5,6 +5,14 @@ export const Grants = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      programStatus: z
+        .union([
+          z.literal("Active"),
+          z.literal("Completed"),
+          z.literal("Coming Soon"),
+        ])
+        .optional()
+        .default("Active"),
       grantType: z
         .union([z.literal("Program"), z.literal("Project")])
         .optional(),

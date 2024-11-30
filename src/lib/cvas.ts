@@ -125,6 +125,7 @@ export const paragraphCva = cva(" font-light", {
       tertiary: "text-zinc-100",
     },
     size: {
+      lg: "text-base lg:text-lg",
       sm: "text-xs",
       md: "text-xs  md:text-sm lg:text-base",
     },

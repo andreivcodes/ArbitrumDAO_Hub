@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+    className?: string;
+  };
+  buttons?: {
+    href: string;
+    text: string;
+    variant?: "default" | "secondary";
+  }[];
+}
+
+const { title, description, image, buttons = [] } = Astro.props;
+import { Image } from "astro:assets";
+import Button from "../ui/button.astro";
+---
+
+<section
+  class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
+>
+  <div class="flex flex-col gap-4">
+    <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
+      {title}
+    </h1>
+    <p
+      class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
+    >
+      {description}
+    </p>
+    {
+      buttons.length > 0 && (
+        <div class="mt-2 flex flex-wrap gap-4">
+          {buttons.map((button) => (
+            <Button
+              href={button.href}
+              arrow
+              variant={button.variant || "secondary"}
+            >
+              {button.text}
+            </Button>
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <Image
+    src={image.src}
+    alt={image.alt}
+    width={400}
+    height={400}
+    class={image.className || "w-[100%] md:w-[40%]"}
+  />
+</section>

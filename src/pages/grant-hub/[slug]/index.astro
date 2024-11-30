@@ -1,19 +1,11 @@
 ---
-import Card from "@/components/grant-hub/card.astro";
-import Features from "@/components/grant-hub/features.astro";
+import RoundedNavWrapper from "@/components/grant-hub/rounded-nav-wrapper.astro";
 import GradientHead from "@/components/ui/gradient-head.astro";
 import Seperator from "@/components/ui/seperator.astro";
-import { GrantHub_Homepage } from "@/consts";
-import MainLayout from "@/layouts/MainLayout.astro";
-import { paragraphCva, titleCva } from "@/lib/cvas";
-import type { PaginateFunction } from "astro";
-import { getCollection } from "astro:content";
-import Paginate from "@/components/ui/paginate.astro";
-import RoundedNav from "@/components/ui/nav/rounded-nav.astro";
-import RoundedNavWrapper from "@/components/grant-hub/rounded-nav-wrapper.astro";
-import Button from "@/components/ui/button.astro";
 import { fundedGrants } from "@/data/links/grant-hub";
+import MainLayout from "@/layouts/MainLayout.astro";
 import { proseClasses } from "@/lib/classes";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const data = await getCollection("Grant_Hub");
@@ -72,8 +64,6 @@ if (!data?.grants?.title && data?.update?.title) {
     disabled: i === 1 ? true : false,
   }));
 }
-
-console.log(nav);
 ---
 
 <MainLayout
@@ -83,6 +73,7 @@ console.log(nav);
 >
   <RoundedNavWrapper nav={nav}>
     <GradientHead
+      programStatus={data?.programStatus}
       title={data.title}
       description={data.description}
       buttons={data?.buttons && data?.grants?.title

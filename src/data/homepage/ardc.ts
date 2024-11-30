@@ -1,7 +1,7 @@
 export const heroPoints = [
   {
     title: "Collaborative Governance",
-    descriptoin:
+    description:
       "The ARDC encourages active participation from community members and delegates, ensuring diverse perspectives are integrated into decision-making processes.",
     icon: ` <svg
           width="34"
@@ -38,7 +38,7 @@ export const heroPoints = [
   },
   {
     title: "Expertise and Specialization",
-    descriptoin:
+    description:
       "Comprising specialists in governance, security, and economics, the ARDC utilizes targeted expertise to address challenges and enhance the ecosystem's resilience.",
     icon: ` <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_7690_88545" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="42" height="43">
@@ -52,7 +52,7 @@ export const heroPoints = [
   },
   {
     title: "Rigorous Research and Analysis",
-    descriptoin:
+    description:
       "The collective prioritizes thorough research to inform governance proposals and risk assessments, providing a solid foundation for its initiatives.",
     icon: `<svg width="39" height="44" viewBox="0 0 39 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_7690_88552" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="39" height="44">
@@ -66,7 +66,7 @@ export const heroPoints = [
   },
   {
     title: "Community Engagement",
-    descriptoin:
+    description:
       "ARDC focuses on fostering strong communication and collaboration with the community, enhancing stakeholder involvement and promoting a vibrant ecosystem.",
     icon: `<svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_7690_88559" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="42" height="43">
@@ -167,23 +167,27 @@ export const deliverables = [
     description:
       "This deliverable analyzes improvements to sequencing efficiency and security, focusing on scalability and resilience. It assesses technical design options...",
     date: "25-05-24",
+    link: "https://forum.arbitrum.foundation/t/ardc-research-deliverables/23438",
   },
   {
     title: "Optimizing Transaction Sequencing Through Research",
     description:
       "This deliverable explores ways to optimize transaction sequencing by reducing latency, boosting speed, and improving scalability...",
     date: "25-5-24",
+    link: "https://forum.arbitrum.foundation/t/ardc-research-deliverables/23438",
   },
   {
     title: "Concerns Over Synapse’s Use of ARB Incentives in STIP",
     description:
       "The thread on the Arbitrum Foundation forum raises concerns about potential misconduct by Synapse with regard to the use of ARB incentives through.....",
     date: "13-05-24",
+    link: "https://forum.arbitrum.foundation/t/concerns-regarding-possible-misconduct-by-synapse-with-respect-to-the-usage-of-arb-incentives-allocated-through-the-stip/23775",
   },
   {
     title: "Security Analysis of using Hedgey for proposal payment vesting",
     description:
       "The thread on the Arbitrum forum provides a security analysis of using Hedgey’s contracts for payment vesting related to a proposal. OpenZeppel.....",
     date: "14-05-24",
+    link: "https://docs.google.com/spreadsheets/d/1MDYSLyAqeIF3yuSyMExHbRG1zHjDQZ3xE1GtG3WBhN4/edit?gid=1540434919#gid=1540434919",
   },
 ];

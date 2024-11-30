@@ -1,0 +1,79 @@
+---
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import Button from "../ui/button.astro";
+
+const icons = {
+  message: "/programs/icons/message.svg",
+  telegram: "/programs/icons/telegram.svg",
+  at: "/programs/icons/at.svg",
+};
+
+interface Props {
+  cards?: {
+    icon: keyof typeof icons;
+    title: string;
+    description: string;
+    link?: {
+      text: string;
+      href: string;
+    };
+  }[];
+  title?: string;
+  description?: string;
+}
+
+const { cards, title, description } = Astro.props;
+
+const displayCards = cards;
+---
+
+<section class="flex flex-col gap-10 py-10">
+  <div class="flex flex-col gap-2">
+    <h2 class={titleCva()}>{title}</h2>
+    <p class={paragraphCva()}>{description}</p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {
+      displayCards?.map((card) => (
+        <div class="flex flex-col gap-4 rounded-small border bg-white p-6 shadow-sm">
+          <div class="flex flex-1  flex-col gap-4">
+            <img src={icons[card.icon]} alt="" class="size-16" />
+            <h3 class={titleCva()}>{card.title}</h3>
+            <h4 class={"md:text-lg"}>{card.description}</h4>
+          </div>
+          {card.link && (
+            <Button
+              href={card.link.href}
+              className="mt-auto flex gap-3 items-center w-full font-sans !text-black !text-base !py-2 !bg-gray-200"
+            >
+              {card.link.text}
+              <svg
+                width="35"
+                height="34"
+                viewBox="0 0 35 34"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.5781 20.5566L21.42 12.7146M21.42 12.7146H14.5584M21.42 12.7146V19.5763"
+                  stroke="black"
+                  stroke-width="0.72327"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17.4999 30.4978C25.156 30.4978 31.3626 24.2912 31.3626 16.6351C31.3626 8.97899 25.156 2.77246 17.4999 2.77246C9.84374 2.77246 3.63721 8.97899 3.63721 16.6351C3.63721 24.2912 9.84374 30.4978 17.4999 30.4978Z"
+                  stroke="black"
+                  stroke-width="0.72327"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </Button>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>

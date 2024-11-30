@@ -1,91 +1,60 @@
 ---
+import Calendar from "@/components/community-hub/calendar.astro";
 import Faq from "@/components/developer-hub/faq";
+import Community from "@/components/programs/community.astro";
+import Governance from "@/components/programs/governance.astro";
+import ProgramHero from "@/components/programs/hero-section.astro";
+import PointsGrid from "@/components/programs/points-grid.astro";
+import TeamGrid from "@/components/programs/team-grid.astro";
+import UpdatesSection from "@/components/programs/updates-section.astro";
 import Button from "@/components/ui/button.astro";
 import Seperator from "@/components/ui/seperator.astro";
 import { faqs, heroPoints, members } from "@/data/homepage/entropy";
-import { paragraphCva, titleCva } from "@/lib/cvas";
-import { Image } from "astro:assets";
-
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
 <MainLayout
   smooth
-  title={"Arbitrum Ventures Initiatives"}
-  description={"AVI is Arbitrum’s dedicated venture program, designed to foster growth and innovation across the Arbitrum ecosystem. It strategically invests in projects that support decentralized finance (DeFi), blockchain infrastructure, gaming, and Web3 applications. By empowering transformative ideas, AVI aims to create new opportunities and partnerships that enrich the Arbitrum network and advance the future of decentralized technology."}
->
-  <section
-    class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
-  >
-    <div class="flex flex-col gap-4">
-      <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
-        Entropy Advisors
-      </h1>
-      <p
-        class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
-      >
-        Entropy Advisors is a specialized strategic consulting firm that
+  title={"Entropy Advisors"}
+  description={`Entropy Advisors is a specialized strategic consulting firm that
         exclusively partners with the Arbitrum DAO. With extensive experience in
         blockchain governance and growth strategy, they provide critical
         insights and guidance, helping Arbitrum align its community, mission,
         and strategic vision. Entropy Advisors has become an invaluable partner
         in driving sustainable growth and enhancing decision-making processes
-        within the DAO.
-      </p>
-      <div class="mt-2 flex flex-wrap gap-4">
-        <Button
-          variant="secondary"
-          href="https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246"
-          arrow
-          >Arbitrum Forum
-        </Button>
-        <Button
-          href="https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x3161a3d9486ab7b6099be9fda16d6498f329249c0ad33b0f75090f2ceb557789"
-          arrow
-          variant="secondary"
-          >Snapshot
-        </Button>
-        <Button
-          href="https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758"
-          arrow
-          variant="secondary"
-          >Tally
-        </Button>
-      </div>
-    </div>
-    <Image
-      src="/entropy/hero.svg"
-      alt="Arbitrum Research and Development Collective"
-      width={400}
-      height={400}
-      class="aspect-[16/7] w-[100%] object-cover object-center md:w-[40%]"
-    />
-  </section>
-  <section class="grid gap-5 pb-10 md:grid-cols-2 xl:grid-cols-4 2xl:gap-10">
-    {
-      heroPoints?.map(({ title, descriptoin, icon }, index) => (
-        <div class="flex flex-col gap-3 rounded-lg bg-[#F0F9FF] p-5">
-          {<div set:html={icon} />}
-          <h1
-            class={titleCva({
-              size: "sm",
-            })}
-          >
-            {title}
-          </h1>
-          <p
-            class={paragraphCva({
-              size: "md",
-            })}
-          >
-            {descriptoin}
-          </p>
-        </div>
-      ))
-    }
-  </section>
+        within the DAO.`}
+>
+  <ProgramHero
+    title="Entropy Advisors"
+    description="Entropy Advisors is a specialized strategic consulting firm that exclusively partners with the Arbitrum DAO. With extensive experience in blockchain governance and growth strategy, they provide critical insights and guidance, helping Arbitrum align its community, mission, and strategic vision."
+    image={{
+      src: "/entropy/hero.svg",
+      alt: "Arbitrum Research and Development Collective",
+      className: "aspect-[16/7] w-[100%] object-cover object-center md:w-[40%]",
+    }}
+    buttons={[
+      {
+        href: "https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246",
+        text: "Arbitrum Forum",
+        variant: "secondary",
+      },
+      {
+        href: "https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x3161a3d9486ab7b6099be9fda16d6498f329249c0ad33b0f75090f2ceb557789",
+        text: "Snapshot",
+        variant: "secondary",
+      },
+      {
+        href: "https://www.tally.xyz/gov/arbitrum/proposal/16862129143470948068395175122563617380780349421262247459634070073165514405758",
+        text: "Tally",
+        variant: "secondary",
+      },
+    ]}
+  />
+
+  <PointsGrid points={heroPoints} />
 
   <Seperator />
+
   <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
     <div class="flex flex-col gap-6 md:gap-4">
       <h2
@@ -213,59 +182,84 @@ import MainLayout from "../../layouts/MainLayout.astro";
     </div>
   </section>
   <Seperator />
-  <section class="flex flex-col gap-4">
-    <h2
-      class={titleCva({
-        size: "md",
-      })}
-    >
-      Team
-    </h2>
-    <div class="grid grid-cols-2 gap-3 md:gap-8 lg:grid-cols-3">
-      {
-        members?.map((item, index) => (
-          <div class="flex  items-center gap-3 rounded-xl border bg-[#F7F6FA]  p-2 md:gap-4 md:p-5 ">
-            <Image
-              src={item.image}
-              class="size-10 rounded-full md:size-20"
-              width={88}
-              height={88}
-              alt={` ${index + 1}`}
-            />
-            <div class="flex flex-col ">
-              <h4
-                class={titleCva({
-                  size: "sm",
-                })}
-              >
-                {item.name}
-              </h4>
-              <p class={paragraphCva()}>{item.designation}</p>
+  <TeamGrid members={members} columns={3} mobileColumns={2} />
 
-              <a
-                href={item.link}
-                target="_blank"
-                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white text-gray-500 shadow-sm"
-              >
-                <svg
-                  width="16"
-                  height="14"
-                  viewBox="0 0 16 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.6009 0.896729H15.0544L9.69434 6.24734L16 13.5283H11.062L7.19492 9.11244L2.77013 13.5283H0.315209L6.0483 7.80523L0 0.896729H5.06188L8.55736 4.933L12.5995 0.896729H12.6009ZM11.7399 12.2457H13.0993L4.32392 2.11195H2.86506L11.7399 12.2457Z"
-                    fill="#71717A"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  <Seperator />
+  <Calendar />
+  <Seperator />
+  <UpdatesSection
+    button={{
+      href: "https://forum.arbitrum.foundation/c/dao-grant-programs/entropy-advisors-updates/50",
+      text: "View all Updates on Forum",
+    }}
+    title="Stay Updated with Entropy Advisors"
+    description="Explore ongoing initiatives, achievements, and goals shaping the DAO’s evolution. A guide for informed and effective community participation."
+    updates={[
+      {
+        title: "Entropy Advisor’s Monthly Update: October 2024",
+        date: "October, 2024",
+        link: "https://forum.arbitrum.foundation/t/entropy-advisors-monthly-update-october-2024/27393",
+      },
+      {
+        title: "Entropy Advisor’s Monthly Update: September 2024",
+        date: "September, 2024",
+        link: "https://forum.arbitrum.foundation/t/entropy-advisors-monthly-update-september-2024/26996",
+      },
+      {
+        title: "Entropy Advisor’s Monthly Update: August 2024",
+        date: "August, 2024",
+        link: "https://forum.arbitrum.foundation/t/entropy-advisors-monthly-update-august-2024/26637",
+      },
+    ]}
+  />
+  <Seperator />
+  <Community
+    title="Get Involved with Entropy Advisors"
+    description="Connect, Collaborate, Contribute"
+    cards={[
+      {
+        link: {
+          href: "https://forum.arbitrum.foundation/t/entropy-advisors-exclusively-working-with-arbitrum-dao/25246",
+          text: "Visit Forum Threads",
+        },
+        icon: "message",
+        title: "Share Your Ideas",
+        description:
+          "Engage in discussions and share your insights on their forum threads. ",
+      },
+      {
+        link: {
+          href: "/meetings/",
+          text: "View Meeting Schedule",
+        },
+        icon: "message",
+        title: "Join Bi-Weekly Calls",
+        description:
+          "Stay updated by participating in our open calendar events.",
+      },
+    ]}
+  />
+  <Seperator />
+  <Governance
+    cards={[
+      {
+        title: "Explore Their Values and Goals",
+        description:
+          "Learn about their vision and objectives for the community by visiting their Tally Profile.",
+        buttonLabel: "Tally Profile",
+        buttonLink:
+          "https://www.tally.xyz/gov/arbitrum/delegate/0xb4c064f466931b8d0f637654c916e3f203c46f13",
+      },
+      {
+        title: "Understand Their Decision-Making Process",
+        description:
+          "Check out their Delegate Communication Thread for insights into their voting rationales and contributions.",
+        buttonLabel: "View Thread",
+        buttonLink:
+          "https://forum.arbitrum.foundation/t/entropy-advisors-delegate-communication-thread/26636",
+      },
+    ]}
+  />
 
   <Seperator />
   <Faq client:load questions={faqs} />

@@ -1,256 +1,89 @@
 ---
 import Calendar from "@/components/community-hub/calendar.astro";
 import Faq from "@/components/developer-hub/faq";
+import ProgramHero from "@/components/programs/hero-section.astro";
+import PointsGrid from "@/components/programs/points-grid.astro";
+import TeamGrid from "@/components/programs/team-grid.astro";
+import TwoColumnSection from "@/components/programs/two-column-section.astro";
 import Button from "@/components/ui/button.astro";
 import CardLink from "@/components/ui/links/card-link.astro";
 import Seperator from "@/components/ui/seperator.astro";
 import { faqs, heroPoints, members } from "@/data/homepage/adpc";
-import { paragraphCva, titleCva } from "@/lib/cvas";
-import { Image } from "astro:assets";
-
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const title = "Arbitrum DAO Procurement Committee";
+const description =
+  "The ADPC is a governance entity proposed to manage the Arbitrum ecosystem's procurement needs. It would handle vendor selection, ensure fair pricing, uphold procurement standards, and oversee the allocation of resources. The committee’s role emphasizes transparency, competitive pricing, and effective vendor management to streamline procurement processes.";
 ---
 
-<MainLayout
-  smooth
-  title={"Arbitrum Research and Development Collective"}
-  description={"The ARDC plays a crucial role in bolstering the growth and prosperity of the Arbitrum ecosystem by reviewing and enhancing governance proposals, conducting security code reviews, offering quantitative analysis for  economic risk, and fostering engagement among delegates."}
->
-  <section
-    class="mt-5 flex flex-col items-center justify-between gap-14 rounded-4xl bg-sky px-2 pb-10 pt-32 md:mt-10 md:flex-row md:rounded-3xl md:px-4 md:pb-20 lg:rounded-5xl lg:px-5"
-  >
-    <div class="flex flex-col gap-4">
-      <h1 class="text-2xl font-medium md:text-3xl lg:text-4xl">
-        Arbitrum DAO Procurement Committee
-      </h1>
-      <p
-        class="mt-2 max-w-2xl font-os text-sm text-gray-500 md:text-base lg:text-lg"
-      >
-        The ADPC is a governance entity proposed to manage the Arbitrum
-        ecosystem's procurement needs. It would handle vendor selection, ensure
-        fair pricing, uphold procurement standards, and oversee the allocation
-        of resources. The committee’s role emphasizes transparency, competitive
-        pricing, and effective vendor management to streamline procurement
-        processes.
-      </p>
-    </div>
-    <Image
-      src="/adpc/hero.svg"
-      alt="Arbitrum Research and Development Collective"
-      width={400}
-      height={400}
-      class="w-[100%] md:w-[40%]"
-    />
-  </section>
-  <section class="grid gap-5 pb-10 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
-    {
-      heroPoints?.map(({ title, descriptoin, icon }, index) => (
-        <div class="flex flex-col gap-3 rounded-lg bg-[#F0F9FF] p-5">
-          {<div set:html={icon} />}
-          <h1
-            class={titleCva({
-              size: "sm",
-            })}
-          >
-            {title}
-          </h1>
-          <p
-            class={paragraphCva({
-              size: "md",
-            })}
-          >
-            {descriptoin}
-          </p>
-        </div>
-      ))
-    }
-  </section>
+<MainLayout smooth title={title} description={description}>
+  <ProgramHero
+    title={title}
+    description={description}
+    image={{
+      src: "/adpc/hero.svg",
+      alt: "Arbitrum Research and Development Collective",
+    }}
+    buttons={[
+      {
+        href: "https://forum.arbitrum.foundation/t/arbitrum-dao-procurement-committee-phase-ii-proposal/26441",
+        text: "Arbitrum Forum",
+      },
+      {
+        href: "https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x66812a5c91fe5f590965148c76f1ca609fdc5ded722544673c275a3b2ed94549",
+        text: "Snapshot",
+      },
+      {
+        href: "https://www.tally.xyz/gov/arbitrum/proposal/93496910583545921039254255671954964968329693484106479494661805749408858477569?govId=eip155:42161:0x789fC99093B09aD01C34DC7251D0C89ce743e5a4",
+        text: "Tally",
+      },
+    ]}
+  />
+
+  <PointsGrid points={heroPoints} />
 
   <Seperator />
-  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
-    <div class="flex flex-col gap-6 md:gap-4">
-      <h2
-        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
-      >
-        Phase 2 of ADPC
-      </h2>
-      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
-        <p
-          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
-        >
-          With structured and efficient procurement strategies, ADPC prioritizes
-          cost-effectiveness to maximize resources, supporting sustainable
-          project growth.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col-reverse items-center justify-between gap-10 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-10 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
-    >
-      <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
-        <div class="flex flex-col gap-2 lg:gap-4">
-          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
-            <span>Enhanced Resource Allocation </span>
-            <br class="md:hidden lg:block" />
-            <span class={"text-primary"}> for Decentralization</span>
-          </h1>
 
-          <p
-            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
-          >
-            In Phase 2, the ADPC adopts a strategic approach to resource
-            allocation, aiming to strengthen decentralization by supporting
-            efficient, transparent, and community-driven governance. This
-            initiative fosters collaboration and sustainable growth, empowering
-            stakeholders across the Arbitrum ecosystem.
-          </p>
-        </div>{" "}
-        <div class="flex items-start">
-          <Button
-            href={"https://www.tally.xyz/gov/arbitrum/proposal/93496910583545921039254255671954964968329693484106479494661805749408858477569?govId=eip155:42161:0x789fC99093B09aD01C34DC7251D0C89ce743e5a4"}
-            arrow
-          >
-            Learn More
-          </Button>
-        </div>
-      </div>
-      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
-        <img
-          src={"/adpc/enhanced.svg"}
-          alt={""}
-          class="w-[76%] lg:aspect-[16/13]"
-        />
-      </div>
-    </div>
-  </section>
+  <TwoColumnSection
+    title="ADPC Phase 2"
+    description="Phase 2 of the ArbitrumDAO Procurement Committee (ADPC) expands its scope to manage key procurement verticals, oversee subsidy funds, and introduce an Operational Expense (OpEx) budget. This phase is centered on efficiency, transparency, and aligning with the DAO's long-term strategic goals."
+    paragraph="Phase 2 establishes a structured approach to procurement, ensuring alignment with strategic objectives while fostering community-driven governance and financial transparency. By defining a long-term vision for the ADPC, this phase strengthens the foundation for sustainable operations and effective resource management across the Arbitrum ecosystem."
+    titleHighlight="Comprehensive | Procurement Strategies"
+    type="Active"
+    image={{
+      src: "/adpc/enhanced.svg",
+      alt: "Enhanced Resource Allocation",
+    }}
+    paraButton={{
+      text: "Public Dashboard",
+      href: "https://adpc.notion.site/ADPC-Public-Dashboard-a1d953a54c7949c38d9882792f90a7a0",
+    }}
+    bgGradient
+  />
   <Seperator />
+
   <Calendar />
 
   <Seperator />
-  <section class="flex flex-col gap-4">
-    <h2
-      class={titleCva({
-        size: "md",
-      })}
-    >
-      Team
-    </h2>
-    <div class="grid gap-3 md:grid-cols-2 md:gap-8 lg:grid-cols-3 2xl:gap-12">
-      {
-        members?.map((item, index) => (
-          <div class="flex  items-center gap-3 rounded-xl border bg-[#F7F6FA]  p-5 md:gap-4 ">
-            <Image
-              src={item.image}
-              class="size-16 rounded-full md:size-20"
-              width={88}
-              height={88}
-              alt={`GameFi ${index + 1}`}
-            />
-            <div class="flex flex-col ">
-              <h4
-                class={titleCva({
-                  size: "sm",
-                })}
-              >
-                {item.name}
-              </h4>
-              <div class="mt-1 flex flex-wrap gap-2">
-                {item?.designation?.map((item, index) => (
-                  <span
-                    class={"rounded-full border px-4 py-1 text-sm font-medium"}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href={item.website}
-                target="_blank"
-                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white text-gray-500 shadow-sm"
-              >
-                <svg
-                  width="16"
-                  height="17"
-                  viewBox="0 0 16 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 14.9712C9.33 14.9711 10.6223 14.5293 11.674 13.7152C12.7257 12.9011 13.4773 11.7607 13.8107 10.4732M8 14.9712C6.67001 14.9711 5.37769 14.5293 4.32598 13.7152C3.27427 12.9011 2.52272 11.7607 2.18934 10.4732M8 14.9712C9.65667 14.9712 11 12.2845 11 8.97119C11 5.65786 9.65667 2.97119 8 2.97119M8 14.9712C6.34334 14.9712 5 12.2845 5 8.97119C5 5.65786 6.34334 2.97119 8 2.97119M13.8107 10.4732C13.934 9.99319 14 9.48986 14 8.97119C14.0016 7.93927 13.7359 6.92452 13.2287 6.02586M13.8107 10.4732C12.0328 11.4588 10.0328 11.9744 8 11.9712C5.892 11.9712 3.91134 11.4279 2.18934 10.4732M2.18934 10.4732C2.06317 9.98251 1.99955 9.47784 2 8.97119C2 7.90119 2.28 6.89586 2.77134 6.02586M8 2.97119C9.06416 2.97075 10.1093 3.25343 11.0281 3.79023C11.947 4.32704 12.7065 5.09864 13.2287 6.02586M8 2.97119C6.93584 2.97075 5.89072 3.25343 4.97187 3.79023C4.05303 4.32704 3.29354 5.09864 2.77134 6.02586M13.2287 6.02586C11.7771 7.28314 9.92036 7.97395 8 7.97119C6.00134 7.97119 4.17334 7.23786 2.77134 6.02586"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  <TeamGrid members={members} columns={3} mobileColumns={1} />
   <Seperator />
+  <TwoColumnSection
+    title="ADPC Phase 1"
+    description="The ADPC Phase 1 was proposed to manage the Arbitrum ecosystem's procurement needs. It would handle vendor selection, ensure fair pricing, uphold procurement standards, and oversee the allocation of resources. The committee’s role emphasizes transparency, competitive pricing, and effective vendor management to streamline procurement processes."
+    paragraph="The ADPC Phase 1 outlines the foundational setup for Arbitrum's procurement process. This phase includes committee formation, defining its mandate, and establishing governance guidelines to manage vendor relationships, ensuring transparent and efficient procurement for the ecosystem."
+    titleHighlight="Transparent and Efficient Procurement for the|Ecosystem"
+    image={{
+      src: "/adpc/ecosystem.svg",
+      alt: "Ecosystem",
+    }}
+    button={{
+      text: "Learn More",
+      href: "https://www.tally.xyz/gov/arbitrum/proposal/43616303506326656287362617487331059827021737444126158637397168372555259240241",
+    }}
+    bgGradient
+    type="Completed"
+  />
 
-  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
-    <div class="flex flex-col gap-6 md:gap-4">
-      <h2
-        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
-      >
-        Phase 1 of ADPC
-      </h2>
-      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
-        <p
-          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
-        >
-          The ADPC Phase 1 was proposed to manage the Arbitrum ecosystem's
-          procurement needs. It would handle vendor selection, ensure fair
-          pricing, uphold procurement standards, and oversee the allocation of
-          resources. The committee’s role emphasizes transparency, competitive
-          pricing, and effective vendor management to streamline procurement
-          processes.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col-reverse items-center justify-between gap-6 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-6 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
-    >
-      <div class="flex flex-col gap-10 lg:w-1/2">
-        <div class="flex flex-col gap-2 pb-10 lg:gap-4 lg:py-28">
-          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
-            <span>Transparent and Efficient Procurement for the </span>
-
-            <span class={"text-primary"}>Ecosystem</span>
-          </h1>
-
-          <p
-            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
-          >
-            The ADPC Phase 1 outlines the foundational setup for Arbitrum's
-            procurement process. This phase includes committee formation,
-            defining its mandate, and establishing governance guidelines to
-            manage vendor relationships, ensuring transparent and efficient
-            procurement for the ecosystem.
-          </p>
-        </div>
-        <div class="flex items-start">
-          <Button
-            href={"https://www.tally.xyz/gov/arbitrum/proposal/43616303506326656287362617487331059827021737444126158637397168372555259240241"}
-            arrow
-          >
-            Learn More
-          </Button>
-        </div>
-      </div>
-      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
-        <img
-          src={"/adpc/ecosystem.svg"}
-          alt={""}
-          class="w-full md:w-[90%] lg:aspect-[16/14]"
-        />
-      </div>
-    </div>
-  </section>
   <Seperator />
   <CardLink
     className="md:max-w-[40%] "
@@ -270,5 +103,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
   </CardLink>
 
   <Seperator />
+
   <Faq client:load questions={faqs} />
 </MainLayout>
