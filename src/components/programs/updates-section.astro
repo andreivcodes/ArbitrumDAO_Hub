@@ -7,7 +7,7 @@ interface Props {
   description?: string;
   updates?: {
     title: string;
-    date: string;
+    date?: string;
     link: string;
   }[];
   button?: {
@@ -41,7 +41,7 @@ const { title, description, updates, button } = Astro.props;
           class="group flex items-center justify-between   bg-zinc-100 p-4 shadow-sm transition-all hover:shadow-md"
         >
           <div class="flex flex-col gap-1 border-l-4 border-primary pl-4">
-            <p class="text-sm text-primary">{update.date}</p>
+            {update.date && <p class="text-sm text-primary">{update.date}</p>}
             <h3 class="text-base font-medium text-gray-900">{update.title}</h3>
           </div>
           <div class="flex items-center gap-2">

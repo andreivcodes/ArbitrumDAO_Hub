@@ -3,41 +3,51 @@ import Faq from "@/components/developer-hub/faq";
 import AimCarousal from "@/components/gcp/AimCarousal";
 import GamesCarousal from "@/components/gcp/GamesCarousal";
 import Subscribe from "@/components/gcp/Subscribe";
+import ProgramHero from "@/components/programs/hero-section.astro";
+import TeamGrid from "@/components/programs/team-grid.astro";
+import UpdatesSection from "@/components/programs/updates-section.astro";
 import Button from "@/components/ui/button.astro";
 import BlogCard from "@/components/ui/cards/blog-card.astro";
 import Seperator from "@/components/ui/seperator.astro";
 import { paragraphCva, titleCva } from "@/lib/cvas";
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { GCP_Homepage } from "../../data/homepage/gcp";
 import MainLayout from "../../layouts/MainLayout.astro";
 const data = await getCollection("blogs", ({ data }) => {
   return data.tag === "GCP";
 });
+const title = "Gaming Catalyst Program";
+const description =
+  "The Gaming Catalyst Program (GCP) is designed to immediately expand awareness and adoption of Arbitrum/Orbit/Stylus by builders and players in the Gaming community. It’s designed to fuel game development on the Arbitrum technology, offering funding, tools, and community support to empower creators.";
 ---
 
-<MainLayout
-  smooth
-  title={"GCP - The Gaming Catalyst Program"}
-  description={"The Gaming Catalyst Program (GCP) is Arbitrum’s flagship initiative to revolutionize blockchain gaming. With a funding pool of 100 to 200 million ARB tokens, the GCP empowers top-tier game studios and independent developers to build groundbreaking games on the Arbitrum network. By supporting the best in the industry, the GCP is positioning Arbitrum as a leader in the Web3 gaming space, driving innovation and creating the future of gaming on blockchain."}
->
-  <section class="relative mt-5 md:mt-10">
-    <img
-      src="/bg/gcp.png"
-      alt="GCP"
-      class="hidden w-full rounded-small md:block md:rounded-large"
-    />
-    <img
-      src="/gcp/mobile-bg.png"
-      alt="GCP"
-      class="block w-full rounded-small md:hidden"
-    />
-    <div class="absolute left-[10%] top-[80%] md:left-[18%] md:top-[60%]">
-      <Button href="https://t.me/gcpopen" arrow variant="secondary"
-        >Join Telegram Community
-      </Button>
-    </div>
-  </section>
+<MainLayout smooth title={title} description={description}>
+  <ProgramHero
+    title={title}
+    description={description}
+    image={{
+      src: "/gcp/hero.svg",
+      alt: "Gaming Catalyst Program",
+      className: "aspect-[16/7] w-[100%] object-cover object-center md:w-[40%]",
+    }}
+    buttons={[
+      {
+        href: "https://forum.arbitrum.foundation/t/catalyze-gaming-ecosystem-growth-on-arbitrum/22368",
+        text: "Arbitrum Forum",
+        variant: "secondary",
+      },
+      {
+        href: "https://snapshot.org/#/arbitrumfoundation.eth/proposal/0x1a9f2097b0b5a0021628e9edb0e7c9bffae4fdbb104f9996463e40a3129c7718",
+        text: "Snapshot",
+        variant: "secondary",
+      },
+      {
+        href: "https://www.tally.xyz/gov/arbitrum/proposal/53472400873981607449547539050199074000442490831067826984987297151333310022877?govId=eip155:42161:0x789fC99093B09aD01C34DC7251D0C89ce743e5a4",
+        text: "Tally",
+        variant: "secondary",
+      },
+    ]}
+  />
   <Seperator />
   <section
     class="flex flex-col-reverse items-center justify-between gap-6 md:flex-row lg:gap-28 lg:p-5"
@@ -47,7 +57,7 @@ const data = await getCollection("blogs", ({ data }) => {
         <p
           class="text-xs font-normal uppercase tracking-widest text-gray-500 lg:text-sm"
         >
-          What it means for the users?
+          What is GCP?
         </p>
         <div class="">
           <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
@@ -74,12 +84,6 @@ const data = await getCollection("blogs", ({ data }) => {
       </div>
 
       <div class="flex items-start gap-4">
-        <Button
-          href="https://www.tally.xyz/gov/arbitrum/proposal/53472400873981607449547539050199074000442490831067826984987297151333310022877?govId=eip155:42161:0x789fC99093B09aD01C34DC7251D0C89ce743e5a4"
-          arrow
-          variant="default"
-          >Read Full Proposal
-        </Button>
         <div class="flex flex-col items-start">
           <Button arrow variant="outline">How to Apply </Button>
           <p
@@ -116,6 +120,9 @@ const data = await getCollection("blogs", ({ data }) => {
           tools, and expert guidance, GCP aims to lower the barriers for game
           developers to build and thrive on the Arbitrum network.
         </p>
+        <Button arrow variant="secondary" href="https://t.me/gcpopen"
+          >Join Telegram Community</Button
+        >
       </div>
     </div>
     <AimCarousal client:load />
@@ -284,115 +291,40 @@ const data = await getCollection("blogs", ({ data }) => {
     </div>
   </section>
   <Seperator />
-  <section class="flex flex-col gap-4">
-    <h2
-      class={titleCva({
-        size: "md",
-      })}
-    >
-      Team
-    </h2>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-8 2xl:gap-12">
-      {
-        GCP_Homepage?.team?.map((item, index) => (
-          <div class="flex  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 ">
-            <Image
-              src={item.image}
-              class="size-12 rounded-full md:size-16"
-              width={64}
-              height={64}
-              alt={`GameFi ${index + 1}`}
-            />
-            <div class="flex flex-col ">
-              <h4
-                class={titleCva({
-                  size: "sm",
-                })}
-              >
-                {item.name}
-              </h4>
-              <p class={paragraphCva()}>{item.designation}</p>
-
-              <a
-                href={item.x}
-                target="_blank"
-                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white shadow-sm"
-              >
-                <svg
-                  width="16"
-                  height="14"
-                  viewBox="0 0 16 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.6009 0.876587H15.0544L9.69434 6.22719L16 13.5082H11.062L7.19492 9.0923L2.77013 13.5082H0.315209L6.0483 7.78509L0 0.876587H5.06188L8.55736 4.91286L12.5995 0.876587H12.6009ZM11.7399 12.2256H13.0993L4.32392 2.09181H2.86506L11.7399 12.2256Z"
-                    fill="#71717A"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  <TeamGrid
+    members={GCP_Homepage?.team}
+    columns={4}
+    mobileColumns={1}
+    title="Team"
+  />
   <Seperator />
-  <section class="flex flex-col gap-4">
-    <h2
-      class={titleCva({
-        size: "md",
-      })}
-    >
-      Council Members
-    </h2>
-    <div
-      class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-8 lg:grid-cols-5 2xl:gap-12"
-    >
+  <TeamGrid
+    members={GCP_Homepage?.council}
+    columns={5}
+    mobileColumns={1}
+    title="Council Members"
+  />
+  <Seperator />
+  <UpdatesSection
+    title="Stay Updated with GCP"
+    description="Explore ongoing initiatives, achievements, and goals shaping the Gaming Ecosystem. A guide for informed and effective community participation."
+    button={{
+      text: "View all Updates on Forum",
+      href: "https://forum.arbitrum.foundation/t/gcp-update-thread/24982",
+    }}
+    updates={[
       {
-        GCP_Homepage?.council?.map((item, index) => (
-          <div class="flex  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 ">
-            <Image
-              src={item.image}
-              class="size-12 rounded-full md:size-16"
-              width={64}
-              height={64}
-              alt={`GameFi ${index + 1}`}
-            />
-            <div class="flex flex-col ">
-              <h4
-                class={titleCva({
-                  size: "sm",
-                })}
-              >
-                {item.name}
-              </h4>
-              <p class={paragraphCva()}>{item.designation}</p>
+        title: "Update #2",
 
-              <a
-                href={item.x}
-                target="_blank"
-                class="mt-4 flex size-8 items-center justify-center rounded-full border bg-white shadow-sm"
-              >
-                <svg
-                  width="16"
-                  height="14"
-                  viewBox="0 0 16 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.6009 0.876587H15.0544L9.69434 6.22719L16 13.5082H11.062L7.19492 9.0923L2.77013 13.5082H0.315209L6.0483 7.78509L0 0.876587H5.06188L8.55736 4.91286L12.5995 0.876587H12.6009ZM11.7399 12.2256H13.0993L4.32392 2.09181H2.86506L11.7399 12.2256Z"
-                    fill="#71717A"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+        link: "https://drive.google.com/file/d/1X7UTukJwkUOLKqPtsIZYncVQ-LPd-KYx/view",
+      },
+      {
+        title: "Update #1",
+
+        link: "https://drive.google.com/file/d/15FIWIPNlIsmoeIxWCwwf3Nuq1mKVWHXN/view",
+      },
+    ]}
+  />
   <Seperator />
   <Subscribe client:load />
   <Seperator />

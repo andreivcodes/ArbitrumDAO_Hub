@@ -1,4 +1,7 @@
 ---
+import { paragraphCva, titleCva } from "@/lib/cvas";
+import { Image } from "astro:assets";
+import clsx from "clsx";
 interface TeamMember {
   name: string;
   designation: string | string[];
@@ -9,14 +12,12 @@ interface TeamMember {
 
 interface Props {
   members: TeamMember[];
-  columns?: 2 | 3 | 4;
+  columns?: 2 | 3 | 4 | 5;
   title?: string;
   mobileColumns?: 1 | 2;
 }
 
-const { members, columns = 3, title = "Team", mobileColumns = 2 } = Astro.props;
-import { paragraphCva, titleCva } from "@/lib/cvas";
-import { Image } from "astro:assets";
+const { members, columns = 3, title = "Team", mobileColumns = 1 } = Astro.props;
 ---
 
 <section class="flex flex-col gap-4">
@@ -24,7 +25,18 @@ import { Image } from "astro:assets";
     {title}
   </h2>
   <div
-    class={`grid gap-3 md:gap-8 2xl:gap-12 grid-cols-${mobileColumns} md:grid-cols-${columns}`}
+    class={clsx(
+      "grid gap-3 md:gap-8 ",
+      mobileColumns === 1 ? "grid-cols-1" : "grid-cols-2",
+      columns === 2
+        ? "md:grid-cols-2"
+        : columns === 3
+          ? "md:grid-cols-3"
+          : columns === 4
+            ? "md:grid-cols-4"
+            : "md:grid-cols-5",
+      columns !== 5 && "2xl:gap-12",
+    )}
   >
     {
       members.map((member) => (

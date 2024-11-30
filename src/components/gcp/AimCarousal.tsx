@@ -67,9 +67,6 @@ const AimCarousal = () => {
 
   return (
     <section className="flex w-full flex-col gap-5">
-      <h2 className="text-lg font-medium md:text-2xl lg:text-3xl">
-        Explore the Ecosystem
-      </h2>
       <Swiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
