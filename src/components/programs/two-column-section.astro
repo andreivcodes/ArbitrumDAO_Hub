@@ -1,0 +1,176 @@
+---
+import clsx from "clsx";
+interface Props {
+  title?: string;
+  subtitle?: string;
+  type?: "Active" | "Completed";
+  description: string;
+  date?: string;
+  image: {
+    src: string;
+    alt: string;
+    className?: string;
+  };
+  button?: {
+    text: string;
+    href: string;
+    variant?: "default" | "secondary" | "outline";
+  };
+  paraButton?: {
+    text: string;
+    href: string;
+    variant?: "default" | "secondary" | "outline";
+  };
+  reversed?: boolean;
+  bgGradient?: boolean;
+  titleHighlight?: string;
+  paragraph?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  date,
+  image,
+  button,
+  paraButton,
+  reversed = false,
+  bgGradient = false,
+  titleHighlight,
+  type,
+  paragraph,
+} = Astro.props;
+
+import Button from "../ui/button.astro";
+
+const colors = {
+  Active: {
+    bg: "bg-[#DEF7EC]",
+    text: "text-[#035444]",
+    dot: "bg-[#6FDFC9]",
+  },
+  Completed: {
+    bg: "bg-[#FFD6D6]",
+    text: "text-[#BF3B3B]",
+    dot: "bg-[#BF3B3B]",
+  },
+};
+---
+
+<section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
+  {
+    (title || subtitle) && (
+      <div
+        class={clsx(
+          "flex flex-col gap-6 md:gap-4",
+          !bgGradient && "border-b pb-10",
+        )}
+      >
+        {title && (
+          <div class="flex flex-col">
+            <h2 class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]">
+              {title}
+              {type && (
+                <span
+                  class={clsx(
+                    "flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium",
+                    type === "Active" && {
+                      [colors.Active.bg]: true,
+                      [colors.Active.text]: true,
+                    },
+                    type === "Completed" && {
+                      [colors.Completed.bg]: true,
+                      [colors.Completed.text]: true,
+                    },
+                  )}
+                >
+                  <div
+                    class={clsx(
+                      "size-2 rounded-full",
+                      type === "Active" && colors.Active.dot,
+                      type === "Completed" && colors.Completed.dot,
+                    )}
+                  />
+                  {type}
+                </span>
+              )}
+            </h2>
+            {date && <p class="text-xs font-light text-gray-500">{date}</p>}
+          </div>
+        )}
+        <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
+          <p class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base">
+            {description}
+          </p>
+          {paraButton && (
+            <div class="flex items-start">
+              <Button
+                href={paraButton.href}
+                arrow
+                variant={paraButton.variant || "default"}
+              >
+                {paraButton.text}
+              </Button>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <div
+    class={`
+    flex w-full flex-col-reverse items-center justify-between gap-10 
+    ${bgGradient ? "bg-gradient-to-b rounded-t-small md:rounded-t-large from-primary-light to-white" : ""} 
+    ${!title ? "rounded-small md:rounded-5xl" : ""}
+    px-3 pt-10 md:gap-10 md:p-5 lg:flex-row
+    ${reversed ? "lg:flex-row-reverse" : ""}
+  `}
+  >
+    <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
+      <div class="flex flex-col gap-2 lg:gap-4">
+        {
+          titleHighlight && (
+            <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
+              <span>{titleHighlight.split("|")[0]}</span>
+              <br class="md:hidden lg:block" />
+              <span class="text-primary">{titleHighlight.split("|")[1]}</span>
+            </h1>
+          )
+        }
+
+        <p
+          class={`
+          pt-3 font-os text-xs font-light text-gray-500 
+          md:text-base lg:pt-0 lg:text-base
+        `}
+        >
+          {paragraph || description}
+        </p>
+      </div>
+
+      {
+        button && (
+          <div class="flex items-start">
+            <Button
+              href={button.href}
+              arrow
+              variant={button.variant || "default"}
+            >
+              {button.text}
+            </Button>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
+      <img
+        src={image.src}
+        alt={image.alt}
+        class={`w-[76%] lg:aspect-[16/13] ${image.className || ""}`}
+      />
+    </div>
+  </div>
+</section>
