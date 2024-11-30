@@ -3,6 +3,7 @@ title: "Uniswap-Arbitrum : Grant Program"
 description: "the UAGP (Uniswap-Arbitrum Grant Program) is tailored to bolster developers crafting within the Uniswap-Arbitrum ecosystem, emphasizing the augmentation of liquidity, usability, and composability. Prioritizing the acceleration of adoption and showcasing collaborative opportunities between Uniswap and Arbitrum DAO, the program invites developers focusing on decentralized applications (dApps) and infrastructure within this ecosystem to apply for grants. With a substantial grant budget exceeding 1 million ARB tokens, the UAGP is poised to incentivize innovation and propel growth within the Uniswap-Arbitrum community."
 overview: "The Uniswap-Arbitrum Grant Program (UAGP) is a 6-month initiative providing grants from $50,000 to $250,000 in ARB tokens to developers building within the Uniswap-Arbitrum ecosystem. With over 1m $ARB tokens in the program, the goal is to accelerate adoption and highlight the expansive opportunities that emerge in overlapping areas of the two ecosystems."
 type: "Home"
+programStatus: "Completed"
 label: "Managed by Areta_io"
 points:
   - Accelerate adoption
@@ -12,9 +13,7 @@ buttons:
   - link: "https://uagp.notion.site/Uniswap-Arbitrum-Grant-Program-UAGP-1c1e8b33bc60436993dd65e37d022f9d"
     text: "Learn More"
     type: "secondary"
-  - link: "https://builder.gitcoin.co/#/chains/42161/rounds/0x5f831ef67fc4e75a8016023333c132fda6fdc232"
-    text: "Apply Here"
-    type: "secondary"
+
 
 grants:
   title: Uniswap
@@ -31,42 +30,7 @@ update:
 import Features from "@/components/grant-hub/features.astro";
 import { titleCva } from "@/lib/cvas";
 
-<Features apply={ {
-    title: "Who Can Apply?",
-    description:
-      "The Arbitrum ecosystem encourages innovation and welcomes participation from diverse builders. We are looking for Individuals or groups who can:",
 
-    buttons: [
-      {
-        link: "https://builder.gitcoin.co/#/chains/42161/rounds/0x5f831ef67fc4e75a8016023333c132fda6fdc232",
-        text: "Apply Here",
-        type: "secondary",
-      },
-      {
-        link: "https://uagp.notion.site/How-to-Apply-98f0daa71c6047fe8ed3e05d82001814",
-        text: "How to Apply",
-        type: "secondary",
-      },
-    ],
-    icons: [
-      {
-        title:
-          "Your project must enhance Uniswap specifically within the Arbitrum ecosystem",
-        image: "/images/grant-hub/connect.svg",
-      },
-      {
-        title: "Funding requests can range from $50,000 to $250,000 USD.",
-        image: "/images/grant-hub/data.svg",
-      },
-      {
-        title: "Project idea based on published RFPs.",
-        image: "/images/grant-hub/code2.svg",
-      },
-    ],
-
-}} />
-
----
 
 import Teams from "@/components/grant-hub/teams.astro";
 import Team1 from "./assets/team1.png";

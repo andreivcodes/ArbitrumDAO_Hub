@@ -1,5 +1,6 @@
 ---
 import clsx from "clsx";
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -42,20 +43,8 @@ const {
   paragraph,
 } = Astro.props;
 
+import Status from "../status.astro";
 import Button from "../ui/button.astro";
-
-const colors = {
-  Active: {
-    bg: "bg-[#DEF7EC]",
-    text: "text-[#035444]",
-    dot: "bg-[#6FDFC9]",
-  },
-  Completed: {
-    bg: "bg-[#FFD6D6]",
-    text: "text-[#BF3B3B]",
-    dot: "bg-[#BF3B3B]",
-  },
-};
 ---
 
 <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
@@ -71,30 +60,7 @@ const colors = {
           <div class="flex flex-col">
             <h2 class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]">
               {title}
-              {type && (
-                <span
-                  class={clsx(
-                    "flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium",
-                    type === "Active" && {
-                      [colors.Active.bg]: true,
-                      [colors.Active.text]: true,
-                    },
-                    type === "Completed" && {
-                      [colors.Completed.bg]: true,
-                      [colors.Completed.text]: true,
-                    },
-                  )}
-                >
-                  <div
-                    class={clsx(
-                      "size-2 rounded-full",
-                      type === "Active" && colors.Active.dot,
-                      type === "Completed" && colors.Completed.dot,
-                    )}
-                  />
-                  {type}
-                </span>
-              )}
+              <Status type={type} />
             </h2>
             {date && <p class="text-xs font-light text-gray-500">{date}</p>}
           </div>

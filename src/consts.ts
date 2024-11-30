@@ -210,3 +210,16 @@ export const multisigs = [
     address: "0xB7c1551BBEB47Eb86266153df5F9D7dA47F08308",
   },
 ];
+
+export const colors = {
+  Active: {
+    bg: "bg-[#DEF7EC]",
+    text: "text-[#035444]",
+    dot: "bg-[#6FDFC9]",
+  },
+  Completed: {
+    bg: "bg-[#FFD6D6]",
+    text: "text-[#BF3B3B]",
+    dot: "bg-[#BF3B3B]",
+  },
+};
