@@ -222,4 +222,9 @@ export const colors = {
     text: "text-[#BF3B3B]",
     dot: "bg-[#BF3B3B]",
   },
+  ComingSoon: {
+    bg: "bg-[#F0F9FF]",
+    text: "text-[#30429F]",
+    dot: "bg-[#30429F]",
+  },
 };

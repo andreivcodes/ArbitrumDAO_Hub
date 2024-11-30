@@ -1,9 +1,10 @@
 ---
 import { titleCva } from "@/lib/cvas";
+import { Icon } from "astro-icon/components";
+import classNames from "classnames";
+import Status from "../status.astro";
 import Button from "../ui/button.astro";
 import InfoCard from "./info-card.astro";
-import classNames from "classnames";
-import { Icon } from "astro-icon/components";
 
 interface Props {
   data: {
@@ -19,10 +20,7 @@ interface Props {
       description: string;
       normal?: boolean;
     }[];
-    tag?: {
-      className?: string;
-      text: string;
-    };
+    tag?: "Active" | "Completed" | "Coming Soon";
   };
 
   grid?: boolean;
@@ -53,18 +51,7 @@ const { data, grid, id, className } = Astro.props;
       >
         {data.title}
       </h1>
-      {
-        data?.tag?.text && (
-          <span
-            class={classNames(
-              "rounded-full p-2 font-medium",
-              data?.tag?.className ?? "",
-            )}
-          >
-            {data?.tag?.text}
-          </span>
-        )
-      }
+      <Status type={data?.tag} />
     </div>
     <p class="mb-6 mt-3 max-w-2xl text-sm text-zinc-700 lg:text-base">
       {data.description}

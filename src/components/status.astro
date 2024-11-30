@@ -3,7 +3,7 @@ import { colors } from "@/consts";
 import clsx from "clsx";
 
 interface Props {
-  type?: "Active" | "Completed";
+  type?: "Active" | "Completed" | "Coming Soon";
 }
 
 const { type } = Astro.props;
@@ -22,6 +22,10 @@ const { type } = Astro.props;
           [colors.Completed.bg]: true,
           [colors.Completed.text]: true,
         },
+        type === "Coming Soon" && {
+          [colors.ComingSoon.bg]: true,
+          [colors.ComingSoon.text]: true,
+        },
       )}
     >
       <div
@@ -29,6 +33,7 @@ const { type } = Astro.props;
           "size-2 rounded-full",
           type === "Active" && colors.Active.dot,
           type === "Completed" && colors.Completed.dot,
+          type === "Coming Soon" && colors.ComingSoon.dot,
         )}
       />
       {type}

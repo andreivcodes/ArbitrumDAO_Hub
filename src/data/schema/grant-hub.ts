@@ -6,7 +6,11 @@ export const Grants = defineCollection({
     z.object({
       title: z.string(),
       programStatus: z
-        .union([z.literal("Active"), z.literal("Completed")])
+        .union([
+          z.literal("Active"),
+          z.literal("Completed"),
+          z.literal("Coming Soon"),
+        ])
         .optional()
         .default("Active"),
       grantType: z
