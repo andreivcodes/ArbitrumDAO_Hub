@@ -9,46 +9,90 @@ interface Props {
   description: string;
   link: string;
   className?: string;
+  wholeCard?: boolean;
 }
 
-const { title, description, link, className } = Astro.props;
+const { title, description, link, className, wholeCard } = Astro.props;
 ---
 
-<section
-  class="not-prose flex justify-between gap-4 rounded-2xl bg-zinc-700 p-4 md:p-6 lg:rounded-small"
->
-  <div class={clsx("flex max-w-sm flex-col gap-3 lg:gap-6", className)}>
-    <h1
-      class={titleCva({
-        color: "tertiary",
-      })}
+{
+  wholeCard ? (
+    <a
+      href={link}
+      target={link.startsWith("http") ? "_blank" : "_self"}
+      class="block"
     >
-      {title}
-    </h1>
-    <p
-      class={paragraphCva({
-        color: "tertiary",
-      })}
-    >
-      {description}
-    </p>
-    <slot name="button" />
-  </div>
-  <a href={link} target={link.startsWith("http") ? "_blank" : "_self"}>
-    <div class="group flex h-full max-w-sm overflow-hidden rounded-md">
-      <div class="flex flex-col justify-between bg-white p-2.5">
-        <Image
-          width={50}
-          height={50}
-          src="/arbitrum.svg"
-          alt="Quickstart Guide"
-          class="size-6 lg:size-8"
-        />
-        <Icon
-          name="arrow-circle"
-          class="size-6 -rotate-45 text-zinc-500 transition-all duration-300 ease-in-out group-hover:rotate-0 lg:size-8"
-        />
+      <section class="not-prose flex justify-between gap-4 rounded-2xl bg-zinc-700 p-4 transition-colors hover:bg-zinc-600 md:p-6 lg:rounded-small">
+        <div class={clsx("flex max-w-sm flex-col gap-3 lg:gap-6", className)}>
+          <h1
+            class={titleCva({
+              color: "tertiary",
+            })}
+          >
+            {title}
+          </h1>
+          <p
+            class={paragraphCva({
+              color: "tertiary",
+            })}
+          >
+            {description}
+          </p>
+          <slot name="button" />
+        </div>
+        <div class="group flex max-h-full w-[12rem] overflow-hidden md:w-auto ">
+          <div class="flex h-full  flex-col justify-between rounded-md bg-white p-2.5">
+            <Image
+              width={50}
+              height={50}
+              src="/arbitrum.svg"
+              alt="Quickstart Guide"
+              class="size-6 lg:size-8"
+            />
+            <Icon
+              name="arrow-circle"
+              class="size-6 -rotate-45 text-zinc-500 transition-all duration-300 ease-in-out group-hover:rotate-0 lg:size-8"
+            />
+          </div>
+        </div>
+      </section>
+    </a>
+  ) : (
+    <section class="not-prose flex justify-between gap-4 rounded-2xl bg-zinc-700 p-4 md:p-6 lg:rounded-small">
+      <div class={clsx("flex max-w-sm flex-col gap-3 lg:gap-6", className)}>
+        <h1
+          class={titleCva({
+            color: "tertiary",
+          })}
+        >
+          {title}
+        </h1>
+        <p
+          class={paragraphCva({
+            color: "tertiary",
+          })}
+        >
+          {description}
+        </p>
+        <slot name="button" />
       </div>
-    </div>
-  </a>
-</section>
+      <a href={link} target={link.startsWith("http") ? "_blank" : "_self"}>
+        <div class="group flex h-full max-w-sm overflow-hidden rounded-md">
+          <div class="flex flex-col justify-between bg-white p-2.5">
+            <Image
+              width={50}
+              height={50}
+              src="/arbitrum.svg"
+              alt="Quickstart Guide"
+              class="size-6 lg:size-8"
+            />
+            <Icon
+              name="arrow-circle"
+              class="size-6 -rotate-45 text-zinc-500 transition-all duration-300 ease-in-out group-hover:rotate-0 lg:size-8"
+            />
+          </div>
+        </div>
+      </a>
+    </section>
+  )
+}

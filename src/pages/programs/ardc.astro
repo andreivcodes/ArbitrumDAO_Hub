@@ -4,12 +4,11 @@ import Faq from "@/components/developer-hub/faq";
 import ProgramHero from "@/components/programs/hero-section.astro";
 import PointsGrid from "@/components/programs/points-grid.astro";
 import TeamGrid from "@/components/programs/team-grid.astro";
-import Button from "@/components/ui/button.astro";
+import TwoColumnSection from "@/components/programs/two-column-section.astro";
 import CardLink from "@/components/ui/links/card-link.astro";
 import Seperator from "@/components/ui/seperator.astro";
 import { deliverables, faqs, heroPoints, members } from "@/data/homepage/ardc";
 import { paragraphCva, titleCva } from "@/lib/cvas";
-import { Check } from "lucide-react";
 import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
@@ -27,15 +26,15 @@ import MainLayout from "../../layouts/MainLayout.astro";
     }}
     buttons={[
       {
-        href: "https://forum.arbitrum.foundation/t/arbitrum-research-development-collective-elections-applications/20805",
+        href: "https://forum.arbitrum.foundation/t/non-constitutional-arbitrum-research-and-development-collective-term-2/26922",
         text: "Arbitrum Forum",
       },
       {
-        href: "https://snapshot.org/#/arbitrumfoundation.eth/proposal/0xf49d88ec2f4fa7373efc66a7cf9441d916519f48a2d90e7db3ea688357150a44",
+        href: "https://snapshot.org/#/arbitrumfoundation.eth/proposal/0xc9fc6b61c7e13a4645937937600397e496a3f4703a8f4d00e11c0f641d86ce9f",
         text: "Snapshot",
       },
       {
-        href: "https://www.tally.xyz/gov/arbitrum/proposal/56002054155248055908873103086558103132748843103210580613728556162036150296506?chart=bubble",
+        href: "https://www.tally.xyz/gov/arbitrum/proposal/36792157050667056852025000136263368859227883753318633087194112219909798752014?govId=eip155:42161:0x789fC99093B09aD01C34DC7251D0C89ce743e5a4",
         text: "Tally",
       },
     ]}
@@ -45,70 +44,22 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
   <Seperator />
 
-  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
-    <div class="flex flex-col gap-6 md:gap-4">
-      <h2
-        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
-      >
-        Phase 2 of ARDC <span
-          class="rounded-full bg-[#E3E0FF] px-3 py-1 text-xs font-medium text-[#5521BC]"
-          >Ongoing</span
-        >
-      </h2>
-      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
-        <p
-          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
-        >
-          Building on the success of Phase 1, Phase 2 of the Arbitrum Research
-          and Development Collective (ARDC) continues its mission to strengthen
-          the Arbitrum ecosystem. With an expanded focus on refining governance,
-          advancing security measures, and deepening community engagement, Phase
-          2 aims to ensure the ecosystem remains secure and well-governed
-          through rigorous research, analysis, and collaboration.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col-reverse items-center justify-between gap-10 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-10 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
-    >
-      <div class="flex flex-col gap-10 pb-10 lg:w-1/2 lg:py-28">
-        <div class="flex flex-col gap-2 lg:gap-4">
-          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
-            <span>Advancing Governance, Security,</span>
-            <br class="md:hidden lg:block" />
-            <span class={"text-primary"}> and Community Engagement</span>
-          </h1>
+  <TwoColumnSection
+    bgGradient
+    title="Phase 2 of ARDC"
+    type="Active"
+    titleHighlight="Empowering | Informed Governance Decisions"
+    description="Building on the success of Phase 1, Phase 2 of the Arbitrum Research and Development Collective (ARDC) continues its mission to strengthen the Arbitrum ecosystem. With an expanded focus on refining governance, advancing security measures, and deepening community engagement, Phase 2 aims to ensure the ecosystem remains secure and well-governed through rigorous research, analysis, and collaboration."
+    paragraph="The ARDC supports the Arbitrum ecosystem by providing objective assessments, refining governance proposals, and ensuring secure, well-researched decision-making. With expert-led reviews and enhanced risk evaluation, they enable ArbitrumDAO participants to make better-informed choices, driving impactful progress and growth."
+    image={{
+      src: "/ardc/governance.svg",
+      alt: "Governance",
+    }}
+  />
 
-          <p
-            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
-          >
-            The Phase 2 proposal expands on the foundational work established in
-            Phase 1, introducing new initiatives to further improve governance,
-            security, and community engagement within the Arbitrum ecosystem. It
-            outlines the specific goals and strategies for this phase, setting a
-            clear direction for the collective’s continued efforts.
-          </p>
-        </div>{" "}
-        <div class="flex items-start">
-          <Button
-            href={"https://forum.arbitrum.foundation/t/non-constitutional-arbitrum-research-and-development-collective-term-2/26922"}
-            arrow
-          >
-            Learn More
-          </Button>
-        </div>
-      </div>
-      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
-        <img
-          src={"/ardc/governance.svg"}
-          alt={""}
-          class="w-[76%] lg:aspect-[16/10]"
-        />
-      </div>
-    </div>
-  </section>
   <Seperator />
   <CardLink
+    wholeCard
     className="md:max-w-[40%]"
     title="ARDC V2 Election Announcement: Election Applications Now Open!"
     description="The ARDC is welcoming new applicants to join the next phase of the Arbitrum Research & Development Collective. Help drive innovation, governance, and community advancement within the ArbitrumDAO. Applications are open from October 30th to November 18th, 2024."
@@ -117,70 +68,28 @@ import MainLayout from "../../layouts/MainLayout.astro";
   <Seperator />
   <Calendar />
   <Seperator />
-  <section class="flex flex-col gap-10 py-5 md:gap-20 md:py-10">
-    <div class="flex flex-col gap-6 md:gap-4">
-      <h2
-        class="flex items-center gap-3 text-lg font-medium md:text-xl lg:w-[35%] lg:text-2xl xl:w-[30%]"
-      >
-        Phase 1 of ARDC <span
-          class="flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-600"
-          ><Check size={14} /> Completed</span
-        >
-      </h2>
-      <div class="ml-auto flex flex-col gap-10 md:w-2/3 lg:w-1/2 lg:gap-5">
-        <p
-          class="font-os text-xs font-light text-gray-500 md:text-sm lg:text-base"
-        >
-          Building on the success of Phase 1, Phase 2 of the Arbitrum Research
-          and Development Collective (ARDC) continues its mission to strengthen
-          the Arbitrum ecosystem. With an expanded focus on refining governance,
-          advancing security measures, and deepening community engagement, Phase
-          2 aims to ensure the ecosystem remains secure and well-governed
-          through rigorous research, analysis, and collaboration.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col-reverse items-center justify-between gap-6 rounded-small bg-gradient-to-b from-primary-light to-white px-3 pt-6 md:gap-10 md:rounded-5xl md:p-5 lg:flex-row"
-    >
-      <div class="flex flex-col gap-10 lg:w-1/2">
-        <div class="flex flex-col gap-2 pb-10 lg:gap-4 lg:py-28">
-          <h1 class="text-lg font-medium md:text-2xl lg:text-3xl">
-            <span>Enhancing Governance </span>
-
-            <span class={"text-primary"}>and Security</span>
-          </h1>
-
-          <p
-            class={"pt-3 font-os text-xs font-light text-gray-500 md:text-base lg:pt-0 lg:text-base"}
-          >
-            The Phase 2 proposal expands on the foundational work established in
-            Phase 1, introducing new initiatives to further improve governance,
-            security, and community engagement within the Arbitrum ecosystem. It
-            outlines the specific goals and strategies for this phase, setting a
-            clear direction for the collective’s continued efforts.
-          </p>
-        </div>
-        <div class="flex items-start">
-          <Button
-            href={"https://forum.arbitrum.foundation/t/ardc-final-report/27050"}
-            arrow
-          >
-            Learn More
-          </Button>
-        </div>
-      </div>
-      <div class="flex flex-1 items-center justify-center md:w-[60%] lg:w-1/2">
-        <img
-          src={"/ardc/security.svg"}
-          alt={""}
-          class="w-[76%] lg:aspect-[16/10]"
-        />
-      </div>
-    </div>
-  </section>
+  <TwoColumnSection
+    bgGradient
+    title="Phase 1 of ARDC"
+    type="Completed"
+    titleHighlight="Enhancing Governance | and Security"
+    description="Phase 1 of the Arbitrum Research & Development Collective (ARDC) is dedicated to strengthening the Arbitrum ecosystem through rigorous research, analysis, and collaboration. ARDC focuses on providing impartial data-driven reports to support delegates in making informed decisions, improving proposals through feedback, and assisting proposers with refining their work. The collective also prioritizes enhanced security through comprehensive code audits and assists with quantitative analysis to evaluate economic risks and optimize proposal designs. In addition to proposal support, ARDC offers project management assistance, creates valuable tooling for security, and fosters community growth through engaging content. By strengthening governance, security, and collaboration, ARDC plays a crucial role in the continued success of the Arbitrum ecosystem."
+    paragraph="The Arbitrum Research and Development Collective (ARDC) plays a pivotal role in the growth and resilience of the Arbitrum ecosystem. Phase 1 was dedicated to advancing governance, enhancing security, and fostering collaboration through rigorous research and analysis."
+    image={{
+      src: "/ardc/security.svg",
+      alt: "Security",
+    }}
+    button={{
+      text: "View Final Report",
+      href: "https://forum.arbitrum.foundation/t/ardc-final-report/27050",
+    }}
+    secondaryButton={{
+      text: "Tally",
+      href: "https://www.tally.xyz/gov/arbitrum/proposal/56002054155248055908873103086558103132748843103210580613728556162036150296506?chart=bubble",
+    }}
+  />
   <Seperator />
-  <TeamGrid members={members} />
+  <TeamGrid members={members} columns={4} />
   <Seperator />
   <section class="flex flex-col gap-4 py-5 md:py-10">
     <h2
@@ -193,7 +102,11 @@ import MainLayout from "../../layouts/MainLayout.astro";
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {
         deliverables?.map((item, index) => (
-          <div class="flex flex-col  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 ">
+          <a
+            href={item.link}
+            target="_blank"
+            class="flex flex-col  gap-3 rounded-xl border bg-[#F7F6FA] p-3 md:gap-4 md:p-5 "
+          >
             <h3
               class={titleCva({
                 size: "sm",
@@ -208,7 +121,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
                 {item.date}
               </span>
             </p>
-          </div>
+          </a>
         ))
       }
     </div>

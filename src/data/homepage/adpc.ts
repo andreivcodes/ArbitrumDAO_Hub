@@ -89,7 +89,7 @@ export const members = [
     image: "/adpc/team/2.png",
   },
   {
-    name: "Blockworks Research - DAIMON LEGAL",
+    name: "Daimon Legal",
     designation: ["Legal", "Regulatory", "DAOAdvisory"],
     link: "https://daimonlegal.com/",
     image: "/adpc/team/3.png",

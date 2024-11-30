@@ -31,10 +31,10 @@ const { members, columns = 3, title = "Team", mobileColumns = 1 } = Astro.props;
       columns === 2
         ? "md:grid-cols-2"
         : columns === 3
-          ? "md:grid-cols-3"
+          ? "md:grid-cols-2 lg:grid-cols-3"
           : columns === 4
-            ? "md:grid-cols-4"
-            : "md:grid-cols-5",
+            ? "md:grid-cols-2 lg:grid-cols-4"
+            : "md:grid-cols-3 lg:grid-cols-5",
       columns !== 5 && "2xl:gap-12",
     )}
   >

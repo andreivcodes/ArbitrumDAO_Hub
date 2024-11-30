@@ -167,23 +167,27 @@ export const deliverables = [
     description:
       "This deliverable analyzes improvements to sequencing efficiency and security, focusing on scalability and resilience. It assesses technical design options...",
     date: "25-05-24",
+    link: "https://forum.arbitrum.foundation/t/ardc-research-deliverables/23438",
   },
   {
     title: "Optimizing Transaction Sequencing Through Research",
     description:
       "This deliverable explores ways to optimize transaction sequencing by reducing latency, boosting speed, and improving scalability...",
     date: "25-5-24",
+    link: "https://forum.arbitrum.foundation/t/ardc-research-deliverables/23438",
   },
   {
     title: "Concerns Over Synapse’s Use of ARB Incentives in STIP",
     description:
       "The thread on the Arbitrum Foundation forum raises concerns about potential misconduct by Synapse with regard to the use of ARB incentives through.....",
     date: "13-05-24",
+    link: "https://forum.arbitrum.foundation/t/concerns-regarding-possible-misconduct-by-synapse-with-respect-to-the-usage-of-arb-incentives-allocated-through-the-stip/23775",
   },
   {
     title: "Security Analysis of using Hedgey for proposal payment vesting",
     description:
       "The thread on the Arbitrum forum provides a security analysis of using Hedgey’s contracts for payment vesting related to a proposal. OpenZeppel.....",
     date: "14-05-24",
+    link: "https://docs.google.com/spreadsheets/d/1MDYSLyAqeIF3yuSyMExHbRG1zHjDQZ3xE1GtG3WBhN4/edit?gid=1540434919#gid=1540434919",
   },
 ];

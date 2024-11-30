@@ -22,6 +22,11 @@ interface Props {
     href: string;
     variant?: "default" | "secondary" | "outline";
   };
+  secondaryButton?: {
+    text: string;
+    href: string;
+    variant?: "default" | "secondary" | "outline";
+  };
   reversed?: boolean;
   bgGradient?: boolean;
   titleHighlight?: string;
@@ -41,6 +46,7 @@ const {
   titleHighlight,
   type,
   paragraph,
+  secondaryButton,
 } = Astro.props;
 
 import Status from "../status.astro";
@@ -118,7 +124,7 @@ import Button from "../ui/button.astro";
 
       {
         button && (
-          <div class="flex items-start">
+          <div class="flex items-start gap-4">
             <Button
               href={button.href}
               arrow
@@ -126,6 +132,15 @@ import Button from "../ui/button.astro";
             >
               {button.text}
             </Button>
+            {secondaryButton && (
+              <Button
+                href={secondaryButton.href}
+                arrow
+                variant={secondaryButton.variant || "secondary"}
+              >
+                {secondaryButton.text}
+              </Button>
+            )}
           </div>
         )
       }
